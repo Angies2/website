@@ -3,12 +3,12 @@
     <el-carousel :autoplay="true" arrow="never"  ref="carousel">
       <el-carousel-item v-for="(item,index) in 3" :key="item">
         <div class="img-carousel">
-          <img src="./caiyuanba.jpg" v-if="index == 0" class="bannerImg" />
+          <img src="./pic05.jpg" v-if="index == 0" class="bannerImg" />
         </div><div class="img-carousel">
-        <img src="./pic01.jpg"  v-if="index == 1" class="bannerImg" />
+        <img src="./pic06.jpg"  v-if="index == 1" class="bannerImg" />
       </div>
         <div class="img-carousel">
-          <img src="./pic02.jpg" v-if="index == 2" class="bannerImg" />
+          <img src="./pic7.jpg" v-if="index == 2" class="bannerImg" />
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -98,7 +98,7 @@
           <router-link to="/news">
             <div class="project-title">
               <span class="project-en-name">&nbsp;&nbsp;News Information</span>
-              <b class="project-ch-name">新闻动态</b>
+              <b class="project-ch-name">新闻资讯</b>
             </div>
           </router-link>
         <el-row :gutter="20" id="news-information">
@@ -289,7 +289,7 @@
       position: relative;
       transition: top 0.5s;
         li {
-          line-height: 48px;
+          line-height: 50px;
           margin-left: 30px;
       }
     }
@@ -309,12 +309,12 @@
     .el-carousel {
       z-index: -9999;
       .el-carousel__container {
-        height: 600px;
+        height: 540px;
       }
     }
     .img-carousel img {
       width: 100%;
-      height: 600px;
+      height: 540px;
     }
     .rolling-news {
       background-color: #fff;

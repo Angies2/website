@@ -16,29 +16,54 @@
         </el-col>
         <el-col :span="13">
           <div class="right-title">CONTACT US</div>
-          <div class="address">
-            <div>通信地址：重庆市渝北区春兰3路一号地矿大厦</div>
-            <div>邮政编码：401121</div>
-            <div>联系电话：023-63087850</div>
-            <div>联系邮箱：lijiakrystal@tylin.com.cn</div>
-          </div>
-          <div class="menu-link">
-            <span class="weixin">
-              <span class="images">官方微信</span>
-            </span>
-            <span class="map">
-              <span class="images">查看地图</span>
-            </span>
-          </div>
+          <el-row>
+            <el-col :span="19">
+              <div class="address">
+                <div>通信地址：重庆市渝北区春兰3路一号地矿大厦</div>
+                <div>邮政编码：401121</div>
+                <div>联系电话：023-63087850</div>
+                <div>联系邮箱：lijiakrystal@tylin.com.cn</div>
+              </div>
+            </el-col>
+            <el-col :span="5" class="QA">
+              <img src="./QA-code.jpg"/>
+            </el-col>
+          </el-row>
+
         </el-col>
       </el-row>
+      <div class="menu-map">
+        <div id="l-map"></div>
+      </div>
     </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "contact-us"
+        name: "contact-us",
+      data() {
+        return {
+          activeName: '人才理念'
+        };
+      },
+      mounted() {
+        // 百度地图API功能
+        var map = new BMap.Map("l-map");    // 创建Map实例
+        var point = new BMap.Point(106.5243766676, 29.6255963376);
+        map.centerAndZoom(point, 14);  // 初始化地图,设置中心点坐标和地图级别
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+          mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+          ]
+        }));
+        map.setCurrentCity("重庆");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);
+        var marker = new BMap.Marker(point);        // 创建标注
+        map.addOverlay(marker);
+      }
     }
 </script>
 
@@ -102,33 +127,14 @@
       line-height: 44px;
       padding-left: 6px;
     }
-    .menu-link {
-      width: 100%;
-      line-height: 62px;
-      text-align: center;
-      font-size: 20px;
-      .weixin {
-        background-color: #FF6600;
-        display: inline-block;
-        width: 48%;
-        color: #fff;
-        float: left;
-        .images {
-          width: 200px;
-          display: inline-block;
-          background: url('./weixin.png') no-repeat 19px 20px;
-        }
-      }
-      .map{
-        display: inline-block;
-        width: 48%;
-        background-color: #F2F2F2;
-        float: right;
-        .images {
-          width: 200px;
-          display: inline-block;
-          background: url('./map.png') no-repeat 27px 18px;
-        }
+    #l-map {
+      width: 1150px;
+      height: 500px;
+    }
+    .QA {
+      img {
+        width: 125px;
+        margin-top: 29px;
       }
     }
   }

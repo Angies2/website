@@ -31,7 +31,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="文化建设" name="文化建设">
-          <label slot="label">文化建设&nbsp;&nbsp;&nbsp;</label>
+          <label slot="label">文化建设</label>
           <div class="cultural-construction">
             <div class="cultural-title">
               <b>为冠军而生的"赢之队"</b>
@@ -80,6 +80,9 @@
               </el-col>
             </el-row>
           </div>
+        </el-tab-pane>
+        <el-tab-pane label="党群建设" name="党群建设">
+          <label slot="label">党群建设&nbsp;&nbsp;&nbsp;</label>
         </el-tab-pane>
       </el-tabs>
     </div>

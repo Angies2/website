@@ -2,13 +2,41 @@
   <div class="recruiting">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：首页>招贤纳士>{{activeName}}</span>
+        <span>您现在的位置：首页>人力资源>{{activeName}}</span>
       </div>
     </div>
     <div class="tabs">
       <el-tabs v-model="activeName">
+        <el-tab-pane label="人才理念" name="人才理念">
+          <label slot="label">&nbsp;&nbsp;&nbsp;人才理念</label>
+          <div class="detailInner">
+            <div class="talent-concept">
+              <h4 class="title-ch">人才战略</h4>
+              <h5 class="title-en">TALENT STRATEGY</h5>
+              <li><span class="orange">用人机制</span>任人唯贤用人才，是公司发展的根本。</li>
+              <li><span class="orange">绩效管理</span>公平公正励人才，是公司壮大的基石。</li>
+              <li><span class="orange">绩效分配</span>事业留人留人才，市公司制胜的源泉。</li>
+              <li><span class="orange">教育培训</span>共生共赢育人才，是公司创新的法宝。  </li>
+            </div>
+            <div class="talent-concept">
+              <h4 class="title-ch">发展平台</h4>
+              <h5 class="title-en">DEVELOPMENT PLATFORM</h5>
+              <li>与大师同行，跟随传奇，挑战传奇，成就传奇。</li>
+              <li>成为行业顶尖团队一员，全方位体现个人能力。</li>
+              <li>参与最前沿、最具影响力的项目，创造属于个人及团队的优秀产品。</li>
+              <li>极具竞争力的企业环境，加速职业能力提升。</li>
+            </div>
+            <div class="talent-concept">
+              <h4 class="title-ch">人才发展通道</h4>
+              <h5 class="title-en">TALENT DEVELOPMENT CHANNEL</h5>
+              <div class="img-manager">
+                <img src="./u303.png"/>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
         <el-tab-pane label="社会招聘" name="社会招聘">
-          <label slot="label">&nbsp;&nbsp;&nbsp;社会招聘</label>
+          <label slot="label">社会招聘</label>
           <div class="detailInner">
             <div class="list-items">
               <h4 class="h4title">项目经理</h4>
@@ -48,45 +76,62 @@
               <li>6、熟悉房建、市政工程现行施工技术措施及施工方案的编审，熟悉现行施工相关技术规范、规程。</li>
             </div>
             <div class="list-items">
-              <h4 class="h4title">土建工程师</h4>
+              <h4 class="h4title">项目资深工程师</h4>
               <p class="time">岗位职责</p>
-              <li>1、贯彻执行适合本项目的法律、法规、技术标准、规范、规程及上级主管部门下发的政策性文件</li>
-              <li>2、掌握施工规范、操作规程、工程验收评定标准</li>
-              <li>3、熟悉施工和设计要求，能够独立提出读图纪要，参与设计交底和设计会审、设计变更</li>
-              <li>4、督促和检查施工组织设计、各类专项施工方案的实施效果</li>
-              <li>5、复核施工过程、特殊过程、关键工序施工质量，并留下相应的影像资料</li>
-              <li>6、编制工程周、月、季度形象进度计划和总体形象进度计划，建立相应的进度计划台账</li>
-              <li>7、复核施工测量放线，轴线标高，参加隐蔽工程验收，分部分项工程验收，工程竣工验收</li>
-              <li>8、做好施工日志记录，周汇报资料、月度汇报资料</li>
-              <li>9、完成项目部领导交办的临时性工作。</li>
+              <li>1、受项目经理委托主持或负责项目管理职责范围内的工作。</li>
+              <li>2、协助项目经理组建项目部，建立项目管理体系，确定项目部的机构设置。</li>
+              <li>3、编写本项目《项目管理实施细则》并督促、检查，确保有效实施。</li>
+              <li>4、做好项目过程控制，保证质量、进度、安全、文明、投资控制等建设管理目标的实现。</li>
+              <li>5、负责项目竣工验收、管理移交，以及后续规划、环保等验收工作并完善备案程序。</li>
+              <li>6、做好与建设单位、设计单位、监理单位、施工单位等相关参建单位和管理部门的协调和管理。</li>
+              <li>7、配合项目经理做好项目结、决算工作；负责完成项目管理总结，编制项目管理总结报告。</li>
               <p class="time">任职要求</p>
-              <li>1、本科以上学历，道路桥梁、土木工程、工程管理、建筑等相关专业</li>
-              <li>2、3年以上施工技术管理经验</li>
-              <li>3、具有初级以上职称</li>
-              <li>4、持有一级建造师、注册监理工程师、注册造价工程师等优先</li>
-              <li>5、具有专业知识、施工技术管理、安全质量管理、相关法律法规能力</li>
-              <li>6、熟悉房建、市政工程现行施工技术措施及熟悉工程项目建设流程。</li>
+              <li>1、本科及以上学历，建筑、土木工程、工程管理及相关专业。</li>
+              <li>2、中级工程师以上职称，一级建造师或其他工程行业注册类证书者优先。</li>
+              <li>3、熟悉工程建设基本流程，具备5年以上的隧道、公路、桥梁等市政或综合市政房建项目管理，或者工程施工管理工作经验；具备EPC项目施工管理经验者优先。</li>
+              <li>4、能够熟练使用office、CAD等工程类办公软件；具备良好沟通协调能力。</li>
+              <li>5、具有良好的成本意识、风险意识。</li>
             </div>
             <div class="list-items">
-              <h4 class="h4title">安装工程师</h4>
+              <h4 class="h4title">BIM项目经理和BIM工程师</h4>
               <p class="time">岗位职责</p>
-              <li>1、贯彻执行适合本项目的法律、法规、技术标准、规范、规程及上级主管部门下发的政策性文件</li>
-              <li>2、参与安装工程资料、文件的审查和评标工作，提出合理建议，负责对投标单位进行安装方面的现场答疑</li>
-              <li>3、参与图纸会审、设计交底工作，负责交底记录整理、签认和发放。跟踪处理图纸会审中提出的问题</li>
-              <li>4、审查并监督检查《水、暖、强弱电施工组织设计/方案》和《施工监理规划》的实施</li>
-              <li>5、负责审查安装工程相关各单位提出的安装工程变更要求</li>
-              <li>6、根据相关规范标准对安装工程施工质量进行控制，对承包单位与监理单位的质量完成情况进行检查考核并提出调整意见</li>
-              <li>7、根据工程施工计划对安装工程的进度进行监督、检查，并根据情况提出调整意见</li>
-              <li>8、负责对安装施工材料、工程机械及施工队伍的质量进行检查</li>
-              <li>9、对安装工程中出现的不合格事项进行检查，并提出处理意见</li>
-              <li>10、负责安装工程的竣工验收。</li>
+              <li>1、作为BIM技术人员与客户及其他合作团队沟通交流。</li>
+              <li>2、根据客户需求制定详细的BIM项目实施目标、流程、工作任务。</li>
+              <li>3、协同项目负责人完成从方案到施工阶段各专业模型的搭建工作。</li>
+              <li>4、配合项目需求开展BIM模型的CAE仿真分析工作。</li>
+              <li>5、BIM管理平台维护更新；BIM数据库搭建及管理协同；BIM驻场工作。</li>
               <p class="time">任职要求</p>
-              <li>1、本科以上学历，电气、暖通、排水、建筑等相关专业</li>
-              <li>2、3年以上安装技术管理经验</li>
-              <li>3、具有初级以上职称</li>
-              <li>4、持有一级建造师、注册监理工程师、注册造价工程师等优先</li>
-              <li>5、具有专业知识、施工技术管理、安全质量管理、相关法律法规能力</li>
-              <li>6、熟悉房建、市政工程现行施工技术措施及熟悉工程项目建设流程。</li>
+              <li>1、统招建筑、结构、土木、机电、计算机项目管理等 相关专业本科及以上学历。</li>
+              <li>2、熟练掌握BIM相关设计与模拟软件的一类（如Revit、Microstation、Navisworks、Rhinoceros、Ecotect、IES等），有实际大型项目BIM应用经验优先；有一年以上设计院建筑、结构等专业设计或工地现场工作经历者优先。</li>
+              <li>3、乐于在BIM领域做前瞻性研究与推广工作。</li>
+              <li>4、具有良好团队精神及沟通协调能力。 </li>
+            </div>
+            <div class="list-items">
+              <h4 class="h4title">平台开发工程师</h4>
+              <p class="time">岗位职责</p>
+              <li>1、参与系统的需求调研和需求分析，撰写相关技术文档。</li>
+              <li>2、搭建系统开发环境，按照要求完成功能模块的设计、编码实现、功能验证及模块测试。</li>
+              <li>3、负责解决开发过程中的技术问题。</li>
+              <li>4、参与代码维护与备份；写项目功能说明等相关文档。</li>
+              <p class="time">任职要求</p>
+              <li>1、统招本科以上，计算机及相关专业。</li>
+              <li>2、三年以上java开发经验，熟悉java Socket编程，java多线程技术，或者熟悉C#，C++编程，熟悉CAD二次开发者优先（如Revit、Civil3D，GIS等软件的二次开发）。</li>
+              <li>3、熟悉java数据库编程，精通主流的软件框架(Spring、hibernate、Struts)，熟悉OSGi。</li>
+              <li>4、工作踏实，责任心强，具有良好的团队精神、沟通协调能力，有较强的分析和解决问题的能力。</li>
+            </div>
+            <div class="list-items">
+              <h4 class="h4title">BIM大数据软件工程师</h4>
+              <p class="time">岗位职责</p>
+              <li>1、负责大数据产品的数据挖掘、建模分析及可视化开发工作，并撰写相关文档。</li>
+              <li>2、负责大数据挖掘、建模、分析工具的选择、部署及实施。</li>
+              <li>3、参与Hadoop平台的搭建及分析组件研发集成工作。</li>
+              <li>4、利用tensorflow框架建立工程行业的深度学习体系。</li>
+              <p class="time">任职要求</p>
+              <li>1、研究生1年以上或本科2年以上计算机、数学、统计学专业优先。</li>
+              <li>2、精通Bash/Perl/Python相关脚本语言。</li>
+              <li>3、熟悉C/C++编程，有UI前端开发经验和大型系统开发背景优先。</li>
+              <li>4、熟悉数据库相关操作，熟悉SQL操作，精通数据结构和算法。</li>
+              <li>5、具有数据分析和数据挖掘方面的项目经验者优先。</li>
             </div>
             <p>应聘者请将个人简历发邮件至招聘邮箱
               <a href="mailto:etech_hrd@tylin.com.cn">etech_hrd@tylin.com.cn</a>
@@ -96,15 +141,15 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="校园招聘" name="校园招聘">
-          <label slot="label">&nbsp;校园招聘&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label slot="label">校园招聘&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <div class="detailInner list-two">
-            <div class="list-items">
-              <div class="detail-title">实现自我价值与能力提升的新领地</div>
-              <li>1、与大师同行，跟随传奇，挑战传奇，成就传奇</li>
-              <li>2、成为行业顶尖团队一员，全方位体现个人能力</li>
-              <li>3、参与最前沿、最具影响力的项目，创造属于个人及团队的优秀产品</li>
-              <li>4、极具竞争力的企业环境，加速职业能力提升</li>
-            </div>
+            <!--<div class="list-items">-->
+              <!--<div class="detail-title">实现自我价值与能力提升的新领地</div>-->
+              <!--<li>1、与大师同行，跟随传奇，挑战传奇，成就传奇</li>-->
+              <!--<li>2、成为行业顶尖团队一员，全方位体现个人能力</li>-->
+              <!--<li>3、参与最前沿、最具影响力的项目，创造属于个人及团队的优秀产品</li>-->
+              <!--<li>4、极具竞争力的企业环境，加速职业能力提升</li>-->
+            <!--</div>-->
             <div class="list-items items-jobs">
               <p class="h4title">招聘岗位</p>
               <li>1、项目管理工程师</li>
@@ -143,7 +188,7 @@
         name: "recruiting",
       data() {
         return {
-          activeName: '社会招聘'
+          activeName: '人才理念'
         };
       },
       mounted() {
@@ -221,6 +266,7 @@
       font-size: 15px;
       line-height: 18px;
       display: block;
+      font-weight: bold;
     }
     .time {
       font-size: 14px;
@@ -229,9 +275,9 @@
       margin-left: 25px;
     }
     li {
-      font-size: 12px;
+      font-size: 14px;
       color: rgb(140, 141, 144);
-      line-height: 24px;
+      line-height: 30px;
       text-align: justify;
       white-space: normal;
       list-style: none;
@@ -248,6 +294,37 @@
         margin-bottom: 14px;
       }
 
+    }
+    .talent-concept {
+      margin-bottom: 50px;
+     .title-ch {
+        font-size: 23px;
+       line-height: 28px;
+       margin-left: -10px;
+       padding-left: 10px;
+       border-left: 6px #FF9955 solid;
+     }
+      .title-en {
+        font-size: 12px;
+        line-height: 30px;
+      }
+      li {
+        line-height: 45px;
+        font-size: 14px;
+        .orange {
+          color: #FF9955;
+          font-weight: bold;
+          display: inline-block;
+          margin-right: 30px;
+        }
+      }
+      .img-manager {
+        text-align: center;
+        margin-top: 40px;
+        img {
+          width: 701px;
+        }
+      }
     }
   }
 </style>

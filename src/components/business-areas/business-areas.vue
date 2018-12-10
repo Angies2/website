@@ -2,253 +2,36 @@
   <div class="business-areas">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：首页>业务领域>{{activeName}}</span>
+        <span>您现在的位置：首页>经典项目>{{activeName}}</span>
       </div>
     </div>
     <div class="tabs">
       <el-tabs v-model="activeName">
-        <el-tab-pane label="项目全过程资讯" name="项目全过程资讯">
-          <label slot="label">&nbsp;&nbsp;&nbsp;项目全过程资讯</label>
+        <el-tab-pane label="国内项目" name="国内项目">
+          <label slot="label">&nbsp;&nbsp;&nbsp;国内项目</label>
           <el-row :gutter="40">
-            <el-col :span="8">
-              <div class="project">
+            <el-col :span="8"    v-for=" item in chinaList">
+              <div class="project"  @click="toDetail(item.id)">
                 <div class="content-cation-img">
-                  <img src="./shuniu.jpg">
+                  <img :src="item.thumbnail">
                 </div>
-                <div class="content-cation-js">昆明市综合交通国际枢纽<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./canlian.jpg">
-                </div>
-                <div class="content-cation-js">重庆市残疾人康复中心<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./guangzhou.jpg">
-                </div>
-                <div class="content-cation-js">广州珠江城<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./baijusi.jpg">
-                </div>
-                <div class="content-cation-js">白居寺长江大桥工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shunyi.jpg">
-                </div>
-                <div class="content-cation-js">北京顺义国际学校<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./hangu.jpg">
-                </div>
-                <div class="content-cation-js">含谷立交改造工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./hongyan.jpg">
-                </div>
-                <div class="content-cation-js">红岩村嘉陵江大桥工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./huofeng.jpg">
-                </div>
-                <div class="content-cation-js">火凤山停车场<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./jiangbei.jpg">
-                </div>
-                <div class="content-cation-js">江北机场专用快速路南引道及腾龙大道二期工程<br></div>
-              </div>
-            </el-col>
-
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shimahe.jpg">
-                </div>
-                <div class="content-cation-js">双碑嘉陵江大桥东引道、石马河立交连接线工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./wankai.jpg">
-                </div>
-                <div class="content-cation-js">万开周家坝-浦里快速通道<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./caijia.jpg">
-                </div>
-                <div class="content-cation-js">重庆蔡家嘉陵江大桥<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./boshubao.jpg">
-                </div>
-                <div class="content-cation-js">重庆市快速路三纵线柏树堡立交工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./xiema.jpg">
-                </div>
-                <div class="content-cation-js">重庆市歇马“缙云新居” 公租房<br></div>
+                <div class="content-cation-js">{{item.title}}<br></div>
               </div>
             </el-col>
           </el-row>
         </el-tab-pane>
-        <el-tab-pane label="BIM全过程咨询" name="BIM全过程咨询">
-          <label slot="label">BIM全过程咨询</label>
+        <el-tab-pane label="国外项目" name="国外项目">
+          <label slot="label">国外项目&nbsp;&nbsp;&nbsp;</label>
           <el-row :gutter="40">
-            <el-col :span="8">
-              <div class="project">
+            <el-col :span="8"    v-for=" item in foreignList">
+              <div class="project"  @click="toDetail(item.id)">
                 <div class="content-cation-img">
-                  <img src="./guandu.png">
+                  <img :src="item.thumbnail">
                 </div>
-                <div class="content-cation-js">官渡区人民医院<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./gaoshanwan.jpg">
-                </div>
-                <div class="content-cation-js">涪陵高山湾交通综合换乘枢纽<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shigulu.jpg">
-                </div>
-                <div class="content-cation-js">高山湾综合客运换乘枢纽市政工程（石鼓路）<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shuniu.jpg">
-                </div>
-                <div class="content-cation-js">昆明市综合交通国际枢纽<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shuniu-1.jpg">
-                </div>
-                <div class="content-cation-js">昆明市综合交通国际枢纽项目<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./canlian.jpg">
-                </div>
-                <div class="content-cation-js">重庆市残疾人康复中心<br></div>
+                <div class="content-cation-js">{{item.title}}<br></div>
               </div>
             </el-col>
           </el-row>
-        </el-tab-pane>
-        <el-tab-pane label="数字化工程管理" name="数字化工程管理">
-          <label slot="label">数字化工程管理</label>
-          <el-row :gutter="40">
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./gaoshanwan.jpg">
-                </div>
-                <div class="content-cation-js">涪陵高山湾交通综合换乘枢纽<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./shigulu01.jpg">
-                </div>
-                <div class="content-cation-js">涪陵高山湾综合客运换成枢纽市政工程（石鼓路）<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./lizhi.jpg">
-                </div>
-                <div class="content-cation-js">涪陵荔枝园立交工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./changjiang01.jpg">
-                </div>
-                <div class="content-cation-js">涪陵长江一桥南桥头立交工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./lantanhe.jpg">
-                </div>
-                <div class="content-cation-js">梁滩河水质达标2017年综合治理工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./zhujing.jpg">
-                </div>
-                <div class="content-cation-js">武汉竹清连通渠道工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./zhaomushan.jpg">
-                </div>
-                <div class="content-cation-js">照母山森林公园游路系统及配套景观完善工程<br></div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="project">
-                <div class="content-cation-img">
-                  <img src="./tongnan.jpg">
-                </div>
-                <div class="content-cation-js">重庆市潼南区潼南大道道路及景观工程<br></div>
-              </div>
-            </el-col>
-          </el-row>
-        </el-tab-pane>
-        <el-tab-pane label="BIM实训基地" name="BIM实训基地">
-          <label slot="label">BIM实训基地&nbsp;&nbsp;&nbsp;</label>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -260,14 +43,46 @@
         name: "business-areas",
       data() {
         return {
-          activeName: '项目全过程资讯'
+          activeName: '国内项目',
+          chinaList:[],
+          foreignList:[],
         };
       },
       mounted() {
-
-      },
+        var _this = this;
+        this.$http.get("/api/contents?currentPage=1&type=china&deleted=false&pageSize=100").then(function(res){
+          var msg = res.body;
+          if(msg.code === 200){
+            this.chinaList = msg.contents;
+          }else{
+            _this.$message({
+              message: msg.message,
+              type: 'error',
+              duration:2000
+            });
+          }
+        });
+        var _this = this;
+        this.$http.get("/api/contents?currentPage=1&type=international&deleted=false&pageSize=100").then(function(res){
+          var msg = res.body;
+          if(msg.code === 200){
+            this.foreignList = msg.contents;
+          }else{
+            _this.$message({
+              message: msg.message,
+              type: 'error',
+              duration:2000
+            });
+          }
+        });
+        },
       created() {
       },
+      methods:{
+        toDetail: function(num) {
+          this.$router.push({path:"/area-detail", query: { areaId: num }})
+        }
+      }
     }
 </script>
 
@@ -293,7 +108,9 @@
   }
   }
   .business-areas .el-tabs__nav {
-    margin: 16px 0 16px 244px;
+    margin: 16px 0;
+    text-align: center;
+    width: 1280px;
   }
   .business-areas .el-tabs__nav-wrap::after {
     background-color: #fff;

@@ -13,11 +13,12 @@
       <el-col :span="19" class="left-menu">
         <router-link to="/" class="home-link">&nbsp;&nbsp;&nbsp;<span>首页</span></router-link>
         <router-link to="/about">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>关于我们</span>&nbsp;</router-link>
-        <router-link to="/news">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>新闻动态</span>&nbsp;</router-link>
-        <router-link to="/business">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>业务领域</span>&nbsp;</router-link>
+        <router-link to="/news">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>新闻资讯</span>&nbsp;</router-link>
+        <router-link to="/business">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>经典项目</span>&nbsp;</router-link>
+        <router-link to="/practice">|&nbsp;&nbsp;&nbsp;&nbsp;<span>BIM实训基地</span>&nbsp;&nbsp;</router-link>
         <!--<router-link to="/about">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>技术创新</span>&nbsp;</router-link>-->
-        <router-link to="/culture">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>企业文化</span>&nbsp;</router-link>
-        <router-link to="/recruiting">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>招贤纳士</span>&nbsp;</router-link>
+        <router-link to="/culture">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>企业文化</span></router-link>
+        <router-link to="/recruiting">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>人力资源</span></router-link>
         <router-link to="/contact">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>联系我们</span></router-link>
       </el-col>
       <el-col :span="5" class="tylin-contact">
@@ -81,7 +82,7 @@
     margin-top: 19px;
     .left-menu a {
       display: inline-block;
-      width: 111px;
+      width: 115px;
       font-weight: bold;
       &:hover span{
         border-bottom: 1px solid #FF9955;

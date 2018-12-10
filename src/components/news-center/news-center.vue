@@ -2,183 +2,56 @@
     <div class="news-center">
       <div class="top-menu">
         <div class="top-menu-location">
-          <span>您现在的位置：首页>新闻动态>{{activeName}}</span>
+          <span>您现在的位置：首页>新闻资讯>{{activeName}}</span>
         </div>
       </div>
       <div class="tabs">
         <el-tabs v-model="activeName">
-          <el-tab-pane label="企业动态" name="企业动态">
+          <el-tab-pane label="企业" name="企业动态">
             <label slot="label">&nbsp;&nbsp;&nbsp;企业动态</label>
-            <ul>
-                <li @click="toDetail('5bfdfcf97720ba5e606254cb')">
-                  <el-row :gutter="60">
-                    <el-col :span="6">
-                      <img src="./6-26.jpg"/>
-                    </el-col>
-                    <el-col :span="18">
-                      <div>
-                        <div class="news-title">公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲</div>
-                        <div class="news-content">林同棪国际工程咨询（中国）有限公司副总裁、林同棪（重庆）国际工程技术有限公司董事长汪洋应邀为重庆市注册建筑师作了《全过程工程咨询模式推进过程中的几个问题》专题培训讲座，本次培训由重庆市城乡建设委员会和重庆市勘察设计协会主办。......</div>
-                        <div class="news-bottom">
-                          <span class="news-date">2018年6月26日</span>
-                          <span class="news-more">了解更多</span>
-                        </div>
+            <ul class="list-news">
+              <li class="list-items"  v-for=" item in companyList" @click="toDetail(item.id)">
+                <el-row :gutter="60">
+                  <el-col :span="6">
+                    <img :src="item.thumbnail"/>
+                  </el-col>
+                  <el-col :span="18">
+                    <div>
+                      <div class="news-title">{{item.title}}</div>
+                      <div class="news-content">{{item.abstract}}</div>
+                      <div class="news-bottom">
+                        <span class="news-date">{{item.date}}</span>
+                        <span class="news-more">了解更多</span>
                       </div>
-                    </el-col>
-                  </el-row>
-                </li>
-                <li @click="toDetail('5bff52af0bced04168b12bb5')">
-                  <el-row :gutter="60">
-                    <el-col :span="6">
-                      <img src="./9-17.jpeg"/>
-                    </el-col>
-                    <el-col :span="18">
-                      <div>
-                        <div class="news-title">林同棪（重庆）国际工程技术有限公司2019年校招火热启动！</div>
-                        <div class="news-content">林同棪(重庆)国际工程技术有限公司2019校园招聘已启动，应届生成就梦想的重要机会。即将走出校门的你，对未来充满着向往， .......</div>
-                        <div class="news-bottom">
-                          <span class="news-date">2018年9月17日</span>
-                          <span class="news-more">了解更多</span>
-                        </div>
-                      </div>
-                    </el-col>
-                  </el-row>
-                </li>
-                <li @click="toDetail('5bff545d0bced04168b12bb7')">
-                  <el-row :gutter="60">
-                    <el-col :span="6">
-                      <img src="./9-30.png"/>
-                    </el-col>
-                    <el-col :span="18">
-                      <div>
-                        <div class="news-title">你的BIM未必出类拔萃，但我能让你与众不同</div>
-                        <div class="news-content">2018年，促进BIM发展的相关政策陆续被推出。国务院，国家发改委，住建部及地方各级政府陆续发文，提出要大力度地推进BIM技术应用。......</div>
-                        <div class="news-bottom">
-                          <span class="news-date">2018年9月30日</span>
-                          <span class="news-more">了解更多</span>
-                        </div>
-                      </div>
-                    </el-col>
-                  </el-row>
-                </li>
-                <li>
-                  <el-row :gutter="60">
-                    <el-col :span="6">
-                      <img src="./10-17.jpg"/>
-                    </el-col>
-                    <el-col :span="18">
-                      <div>
-                        <div class="news-title">林同棪（重庆）国际工程技术有限公司10月校园招聘圆满结束</div>
-                        <div class="news-content">2018年全国BIM应用工程师考试报名倒计时！2018即将过去，今年的目标你实现了几个？经过一年的打拼，你的工作能力和专业水平是否还在突飞猛进.......</div>
-                        <div class="news-bottom">
-                          <span class="news-date">2018年10月17日</span>
-                          <span class="news-more">了解更多</span>
-                        </div>
-                      </div>
-                    </el-col>
-                  </el-row>
-                </li>
-                <li>
-                  <el-row :gutter="60">
-                    <el-col :span="6">
-                      <img src="./11-2.png"/>
-                    </el-col>
-                    <el-col :span="18">
-                      <div>
-                        <div class="news-title">2018 BIM考试秘笈——2018冬季“BIM应用工程师考试”考前冲刺</div>
-                        <div class="news-content">2018年即将过去，今年的小目标你实现了几个？经过一年的打拼，你自身的工作能力和专业水平是不是还在突飞猛进的提升中？相信每个人都会在一年的积累中收获颇深，每个人都有成长和进步，但是如何在工作岗位中脱颖而出......</div>
-                        <div class="news-bottom">
-                          <span class="news-date">2018年11月2日</span>
-                          <span class="news-more">了解更多</span>
-                        </div>
-                      </div>
-                    </el-col>
-                  </el-row>
-                </li>
-              </ul>
+                    </div>
+                  </el-col>
+                </el-row>
+              </li>
+              <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[5, 10, 20, 50]"
+                :page-size="pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total">
+              </el-pagination>
+            </ul>
           </el-tab-pane>
           <el-tab-pane label="行业要闻" name="行业要闻">
             <label slot="label">&nbsp;行业要闻&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <ul>
-              <li @click="toDetail('5bfdfcf97720ba5e606254cb')">
+            <ul  class="list-news"  v-for=" item in companyList">
+              <li  class="list-items" @click="toDetail(item.id)">
                 <el-row :gutter="60">
                   <el-col :span="6">
-                    <img src="./6-26.jpg"/>
+                    <img :src="item.thumbnail"/>
                   </el-col>
                   <el-col :span="18">
                     <div>
-                      <div class="news-title">公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲</div>
-                      <div class="news-content">林同棪国际工程咨询（中国）有限公司副总裁、林同棪（重庆）国际工程技术有限公司董事长汪洋应邀为重庆市注册建筑师作了《全过程工程咨询模式推进过程中的几个问题》专题培训讲座，本次培训由重庆市城乡建设委员会和重庆市勘察设计协会主办。......</div>
+                      <div class="news-title">{{item.title}}</div>
+                      <div class="news-content">{{item.abstract}}</div>
                       <div class="news-bottom">
-                        <span class="news-date">2018年6月26日</span>
-                        <span class="news-more">了解更多</span>
-                      </div>
-                    </div>
-                  </el-col>
-                </el-row>
-              </li>
-              <li  @click="toDetail('5bff52af0bced04168b12bb5')">
-                <el-row :gutter="60">
-                  <el-col :span="6">
-                    <img src="./9-17.jpeg"/>
-                  </el-col>
-                  <el-col :span="18">
-                    <div>
-                      <div class="news-title">林同棪（重庆）国际工程技术有限公司2019年校招火热启动！</div>
-                      <div class="news-content">林同棪(重庆)国际工程技术有限公司2019校园招聘已启动，应届生成就梦想的重要机会。即将走出校门的你，对未来充满着向往， .......</div>
-                      <div class="news-bottom">
-                        <span class="news-date">2018年9月17日</span>
-                        <span class="news-more">了解更多</span>
-                      </div>
-                    </div>
-                  </el-col>
-                </el-row>
-              </li>
-              <li  @click="toDetail('5bff545d0bced04168b12bb7')">
-                <el-row :gutter="60">
-                  <el-col :span="6">
-                    <img src="./9-30.png"/>
-                  </el-col>
-                  <el-col :span="18">
-                    <div>
-                      <div class="news-title">你的BIM未必出类拔萃，但我能让你与众不同</div>
-                      <div class="news-content">2018年，促进BIM发展的相关政策陆续被推出。国务院，国家发改委，住建部及地方各级政府陆续发文，提出要大力度地推进BIM技术应用。......</div>
-                      <div class="news-bottom">
-                        <span class="news-date">2018年9月30日</span>
-                        <span class="news-more">了解更多</span>
-                      </div>
-                    </div>
-                  </el-col>
-                </el-row>
-              </li>
-              <li>
-                <el-row :gutter="60">
-                  <el-col :span="6">
-                    <img src="./10-17.jpg"/>
-                  </el-col>
-                  <el-col :span="18">
-                    <div>
-                      <div class="news-title">林同棪（重庆）国际工程技术有限公司10月校园招聘圆满结束</div>
-                      <div class="news-content">2018年全国BIM应用工程师考试报名倒计时！2018即将过去，今年的目标你实现了几个？经过一年的打拼，你的工作能力和专业水平是否还在突飞猛进.......</div>
-                      <div class="news-bottom">
-                        <span class="news-date">2018年10月17日</span>
-                        <span class="news-more">了解更多</span>
-                      </div>
-                    </div>
-                  </el-col>
-                </el-row>
-              </li>
-              <li>
-                <el-row :gutter="60">
-                  <el-col :span="6">
-                    <img src="./11-2.png"/>
-                  </el-col>
-                  <el-col :span="18">
-                    <div>
-                      <div class="news-title">2018 BIM考试秘笈——2018冬季“BIM应用工程师考试”考前冲刺</div>
-                      <div class="news-content">2018年即将过去，今年的小目标你实现了几个？经过一年的打拼，你自身的工作能力和专业水平是不是还在突飞猛进的提升中？相信每个人都会在一年的积累中收获颇深，每个人都有成长和进步，但是如何在工作岗位中脱颖而出......</div>
-                      <div class="news-bottom">
-                        <span class="news-date">2018年11月2日</span>
+                        <span class="news-date">{{item.date}}</span>
                         <span class="news-more">了解更多</span>
                       </div>
                     </div>
@@ -197,15 +70,44 @@
         name: "news-center",
       data() {
         return {
-          activeName: '企业动态'
+          activeName: '企业动态',
+          companyList:[],
+          currentPage:1, //初始页
+          pagesize:5,    //    每页的数据
+          total:0
         };
       },
       mounted() {
-
+        this.handleUserList();
       },
       methods: {
         toDetail: function(num) {
           this.$router.push({path:"/news-detail", query: { newsId: num }})
+        },
+        // 初始页currentPage、初始每页数据数pagesize和数据data
+        handleSizeChange: function (size) {
+          this.pagesize = size;
+          this.handleUserList();
+        },
+        handleCurrentChange: function(currentPage){
+          this.currentPage = currentPage;
+          this.handleUserList();
+        },
+        handleUserList() {
+          var _this = this;
+          this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
+            var msg = res.body;
+            if(msg.code === 200){
+              this.companyList = msg.contents;
+              this.total = msg.total;
+            }else{
+              _this.$message({
+                message: msg.message,
+                type: 'error',
+                duration:2000
+              });
+            }
+          });
         }
       }
     }
@@ -261,10 +163,10 @@
   .news-center .tabs {
     width: 1280px;
     margin: 0px auto;
-    ul {
+    .list-news {
       border: 1px #F2F2F2 solid;
       padding: 8px 30px 50px 30px;
-      li{
+      .list-items{
         cursor: pointer;
         border-bottom: 1px #e0dede solid;
         padding: 30px 13px;
@@ -291,6 +193,27 @@
             float: right;
           }
         }
+      }
+      /*.el-select-dropdown__item .selected span {*/
+        /*color: #FF9955 !important;*/
+      /*}*/
+      /*.el-pager li.active {*/
+        /*color: #FF9955;*/
+      /*}*/
+      /*.el-select .el-input .el-input__inner {*/
+        /*border-color: #FF9955;*/
+        /*&:focus,*/
+        /*&:hover,*/
+        /*&:active {*/
+          /*border-color: #FF9955;*/
+        /*}*/
+      /*}*/
+      /*.el-pager li:hover {*/
+        /*color: #FF9955;*/
+      /*}*/
+      .el-pagination {
+        float: right;
+        margin-top: 10px;
       }
     }
   }

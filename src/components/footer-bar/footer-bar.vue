@@ -9,19 +9,16 @@
               <router-link to="/about"><div class="navigation-item">公司概况</div></router-link>
               <router-link to="/about"><div class="navigation-item">企业资质</div></router-link>
               <router-link to="/about"><div class="navigation-item">人才团队</div></router-link>
-              <router-link to="/about"><div class="navigation-item">组织架构</div></router-link>
             </el-col>
             <el-col :span="3">
-              <router-link to="/news"><div class="navigation-title">新闻动态</div></router-link>
+              <router-link to="/news"><div class="navigation-title">新闻资讯</div></router-link>
               <router-link to="/news"><div class="navigation-item">企业要闻</div></router-link>
               <router-link to="/news"><div class="navigation-item">行业动态</div></router-link>
             </el-col>
             <el-col :span="3">
-              <router-link to="/business"><div class="navigation-title">业务领域</div></router-link>
-              <router-link to="/business"><div class="navigation-item">项目全过程管理</div></router-link>
-              <router-link to="/business"><div class="navigation-item">BIM全过程咨询</div></router-link>
-              <router-link to="/business"><div class="navigation-item">数字化工程管理</div></router-link>
-              <router-link to="/business"><div class="navigation-item">BIM实训基地</div></router-link>
+              <router-link to="/business"><div class="navigation-title">经典项目</div></router-link>
+              <router-link to="/business"><div class="navigation-item">国内项目</div></router-link>
+              <router-link to="/business"><div class="navigation-item">国外项目</div></router-link>
             </el-col>
             <!--<el-col :span="3">-->
               <!--<div class="navigation-title">技术创新</div>-->
@@ -32,11 +29,20 @@
               <router-link to="/culture"><div class="navigation-title">企业文化</div></router-link>
               <router-link to="/culture"><div class="navigation-item">文化理念</div></router-link>
               <router-link to="/culture"><div class="navigation-item">文化建设</div></router-link>
+              <router-link to="/culture"><div class="navigation-item">党群建设</div></router-link>
             </el-col>
             <el-col :span="3">
-              <router-link to="/recruiting"><div class="navigation-title">招贤纳士</div></router-link>
-              <router-link to="/recruiting"><div class="navigation-item">校园招聘</div></router-link>
+              <router-link to="/practice"><div class="navigation-title">BIM实训基地</div></router-link>
+              <router-link to="/practice"><div class="navigation-item">基地介绍</div></router-link>
+              <router-link to="/practice"><div class="navigation-item">权威授权牌</div></router-link>
+              <router-link to="/practice"><div class="navigation-item">招生简章</div></router-link>
+              <router-link to="/practice"><div class="navigation-item">培训实况 </div></router-link>
+            </el-col>
+            <el-col :span="3">
+              <router-link to="/recruiting"><div class="navigation-title">人力资源</div></router-link>
+              <router-link to="/recruiting"><div class="navigation-item">人才理念</div></router-link>
               <router-link to="/recruiting"><div class="navigation-item">社会招聘</div></router-link>
+              <router-link to="/recruiting"><div class="navigation-item">校园招聘</div></router-link>
             </el-col>
             <el-col :span="3">
               <div class="navigation-title">友情链接</div>

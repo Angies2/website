@@ -92,9 +92,19 @@
                   <div class="content-cation-js">监理资质副本2-1<br></div>
                 </div>
               </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./CIOB.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">英国皇家特许建造学会（CIOB）认证企业<br></div>
+                </div>
+              </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="企业荣誉" name="企业荣誉">
+            <label slot="label">企业荣誉&nbsp;&nbsp;&nbsp;</label>
             <el-row :gutter="40">
               <el-col :span="6">
                 <div class="certificate" @click="magoifying($event)">
@@ -132,25 +142,10 @@
                   <div class="content-cation-js">万开周家坝-浦里快速通道的BIM应用获奖证书1<br></div>
                 </div>
               </el-col>
-              <el-col :span="6">
-                <div class="certificate" @click="magoifying($event)">
-                  <div class="content-cation-img">
-                    <img src="./CIOB.jpg">
-                  </div>
-                  <div class="content-cation-img2"></div>
-                  <div class="content-cation-js">英国皇家特许建造学会（CIOB）认证企业<br></div>
-                </div>
-              </el-col>
             </el-row>
           </el-tab-pane>
           <!--<el-tab-pane label="人才团队" name="人才团队">-->
           <!--</el-tab-pane>-->
-          <el-tab-pane label="组织架构" name="组织架构">
-            <label slot="label">组织架构&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <div class="organizational">
-              <img src="./Organizational-structure.jpg"/>
-            </div>
-          </el-tab-pane>
         </el-tabs>
       </div>
       <div class="b_pic" @click="narrow">
