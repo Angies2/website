@@ -2,7 +2,7 @@
   <div class="recruiting">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：首页>人力资源>{{activeName}}</span>
+        <span>您现在的位置：<router-link to="/" >首页</router-link>>人力资源>{{activeName}}</span>
       </div>
     </div>
     <div class="tabs">
@@ -12,7 +12,7 @@
           <div class="detailInner">
             <div class="talent-concept">
               <h4 class="title-ch">人才战略</h4>
-              <h5 class="title-en">TALENT STRATEGY</h5>
+              <h5 class="title-en">Talent Strategy</h5>
               <li><span class="orange">用人机制</span>任人唯贤用人才，是公司发展的根本。</li>
               <li><span class="orange">绩效管理</span>公平公正励人才，是公司壮大的基石。</li>
               <li><span class="orange">绩效分配</span>事业留人留人才，市公司制胜的源泉。</li>
@@ -20,7 +20,7 @@
             </div>
             <div class="talent-concept">
               <h4 class="title-ch">发展平台</h4>
-              <h5 class="title-en">DEVELOPMENT PLATFORM</h5>
+              <h5 class="title-en">Development Platform</h5>
               <li>与大师同行，跟随传奇，挑战传奇，成就传奇。</li>
               <li>成为行业顶尖团队一员，全方位体现个人能力。</li>
               <li>参与最前沿、最具影响力的项目，创造属于个人及团队的优秀产品。</li>
@@ -28,9 +28,9 @@
             </div>
             <div class="talent-concept">
               <h4 class="title-ch">人才发展通道</h4>
-              <h5 class="title-en">TALENT DEVELOPMENT CHANNEL</h5>
+              <h5 class="title-en">Talent Development Channel</h5>
               <div class="img-manager">
-                <img src="./u303.png"/>
+                <img src="./test.jpg"/>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@
               <li>5、具有数据分析和数据挖掘方面的项目经验者优先。</li>
             </div>
             <p>应聘者请将个人简历发邮件至招聘邮箱
-              <a href="mailto:etech_hrd@tylin.com.cn">etech_hrd@tylin.com.cn</a>
+              <a href="mailto:lijiakrystal@tylin.com.cn">lijiakrystal@tylin.com.cn</a>
               ，为确保应聘资料的准确收集，请在邮件标题中标注"姓名+应聘职位"；当我们收到您的资料后，会在1-2周内与您联系，
               如未与您联系，证明您的资料已进入我们的人才储备库，当我们的岗位需要时，会再与您取得联系。
             </p>
@@ -168,11 +168,11 @@
             <div class="list-items">
               <p class="h4title">个人素质</p>
               <li>1、具有良好的学习能力、沟通协调能力（担任社团领导的人员优先）;</li>
-              <li>2、 硕士研究生毕业（优秀毕业生可放宽至本科学历），博士更佳，英语熟练掌握运用，具有留学背景或国内外相关BIM学习经历的优先考虑</li>
+              <li>2、 硕士研究生毕业（优秀毕业生可放宽至本科学历），博士更佳，英语熟练掌握运用，具有留学背景或国内外相关BIM学习经历的优先考虑；</li>
               <li>3、所有岗位同时接受实习生，2020届、2021届毕业的硕士、博士（可长期实习者优先）。</li>
             </div>
             <p>应聘者请将个人简历发邮件至招聘邮箱
-              <a href="mailto:etech_hrd@tylin.com.cn">etech_hrd@tylin.com.cn</a>
+              <a href="mailto:lijiakrystal@tylin.com.cn">lijiakrystal@tylin.com.cn</a>
               ，为确保应聘资料的准确收集，请在邮件标题中标注"姓名+应聘职位"；当我们收到您的资料后，会在1-2周内与您联系，
               如未与您联系，证明您的资料已进入我们的人才储备库，当我们的岗位需要时，会再与您取得联系。
             </p>
@@ -214,6 +214,9 @@
       background-color: #3031339c;
       padding: 5px;
       border-radius: 3px;
+    }
+    a {
+      color: #fff;
     }
   }
   .recruiting .el-tabs__nav {
@@ -319,10 +322,10 @@
         }
       }
       .img-manager {
-        text-align: center;
-        margin-top: 40px;
+        margin-top: -10px;
         img {
-          width: 701px;
+          width: 800px;
+          margin-top: 60px;
         }
       }
     }

@@ -2,10 +2,10 @@
     <div class="news-detail">
       <div class="top-menu">
         <div class="top-menu-location">
-          <span>您现在的位置：首页>新闻动态>新闻详情</span>
+          <span>您现在的位置：<router-link to="/" >首页</router-link>><router-link to="/news">新闻资讯</router-link>>新闻详情</span>
         </div>
       </div>
-      <div class="detail-title">企业动态</div>
+      <div class="detail-title">{{activeName}}</div>
       <div class="content-botton">
         <div class="menu-title">
           <b>{{news.title}}</b>
@@ -21,12 +21,14 @@
         name: "news-detail",
       data() {
         return {
-          news: {id:'5bfdfcf97720ba5e606254cb',title:'公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲',content:'xxx',date:'2018年2月12日'}
+          news: {id:'5bfdfcf97720ba5e606254cb',title:'公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲',content:'xxx',date:'2018年2月12日'},
+          activeName:'企业动态'
         };
       },
       mounted() {
         var _this = this;
         this.news.id = this.$route.query.newsId;
+        this.activeName = this.$route.query.activeName;
         var newsids = this.news.id;
         this.$http.get("/api/contents/"+newsids).then(function(res){
           var msg = res.body;
@@ -74,6 +76,9 @@
         padding: 5px;
         border-radius: 3px;
       }
+       a {
+         color: #fff;
+       }
     }
     .menu-title {
       text-align: center;

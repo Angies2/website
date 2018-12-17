@@ -2,7 +2,7 @@
     <div class="about-us">
       <div class="top-menu">
         <div class="top-menu-location">
-          <span>您现在的位置：首页>关于我们>{{activeName}}</span>
+          <span>您现在的位置：<router-link to="/">首页</router-link>>关于我们>{{activeName}}</span>
         </div>
       </div>
       <div class="tabs">
@@ -21,16 +21,13 @@
               <el-col :span="18">
                 <div class="left-bar">
                   <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;林同棪(重庆)国际工程技术有限公司成立于2010年，隶属于国际知名工程咨询公司Dar group(达尔集团)和林同棪国际，系林同棪国际中国公司子公司，致力于成为工程全生命期信息化服务的首选集成商。公司依托集团在城市基础设施及建筑领域的优势，以及国际化人才资源和丰富的国内外大型项目工程实践，向用户提供基于BIM+的全过程工程咨询、工程监理、项目管理等服务，我们也依托国内外的BIM专家资源和大量BIM项目实践经验，向社会培养更多的BIM技术人才。
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;林同棪（重庆）国际工程技术有限公司为林同棪国际工程咨询（中国）有限公司的子公司，依托林同棪国际在城市基础设施领域的技术与经验优势，形成以建设工程项目全过程管理（项目管理、项目代理、项目咨询）、设计-采购-施工总承包管理（EPCM）、监测加固、工程监理、BIM全过程咨询五大业务板块为主的综合性工程公司。
                   </p>
                   <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司现有房屋建筑工程、市政公用工程监理甲级资质，获得英国皇家特许建造学会(CIOB)认证企业，
-                    也是由国家工业和信息化部教育与考试中心指定的全国17个BIM技术技能实训基地之一。
-                    并通过了质量、环境和职业健康安全管理一体化体系认证。
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司秉承林同棪（中国）“融中西之长、筑一流企业”的发展理念，成立工程信息化创新中心，将BIM技术与项目管理结合，致力于全生命周期的BIM咨询服务，用信息化技术创造建筑业智慧未来。公司借鉴及引进国际先进理念、专业技术和项目经验，秉承始终如一的创新精神和专业品质优势，坚持不懈的致力于为客户提供最优质的服务。
                   </p>
                   <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司立足重庆，在深圳、江苏、四川、云南、广西等地设立多家分公司，面向全国市场拓展业务。我们不忘初心，砥砺前行，竭诚为国内外的客户提供国际化、
-                    创新和专业的信息化工程咨询服务，持续超越客户期望是我们的永恒追求!
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;林同棪（重庆）国际工程技术有限公司成立于2010年，隶属于国际知名工程咨询公司Dar Group（达尔集团）和林同棪国际，系林同棪国际中国子公司，致力于成为工程全生命期信息化服务的首选集成商。公司依托集团在城市基础设施及建筑领域的优势，以及国际化人才资源和丰富的国内外大型项目工程实践，向用户提供基于BIM+的全过程工程咨询、工程监理、项目管理等服务，我们也依托国内外的BIM专家资源和大量的国内外BIM项目实践经验，向社会培养更多的BIM技术人才。
                   </p>
                 </div>
               </el-col>
@@ -142,6 +139,60 @@
                   <div class="content-cation-js">万开周家坝-浦里快速通道的BIM应用获奖证书1<br></div>
                 </div>
               </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-4.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">BIM创新应用奖<br></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-5.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">柏树堡立交工程重庆市市政工程金杯奖<br></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-6.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">重庆市市政工程金杯奖<br></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-7.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">中国建设工程BIM大赛证书<br></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-8.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">重庆市巴渝杯优质工程奖<br></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="certificate" @click="magoifying($event)">
+                  <div class="content-cation-img">
+                    <img src="./BIM-9.jpg">
+                  </div>
+                  <div class="content-cation-img2"></div>
+                  <div class="content-cation-js">重庆市市政工程金杯奖<br></div>
+                </div>
+              </el-col>
             </el-row>
           </el-tab-pane>
           <!--<el-tab-pane label="人才团队" name="人才团队">-->
@@ -225,6 +276,9 @@
       background-color: #3031339c;
       padding: 5px;
       border-radius: 3px;
+    }
+    a {
+      color: #fff;
     }
   }
   .about-us .el-tabs__nav {
@@ -322,7 +376,7 @@
         font-size: 12px;
       }
       img {
-          height: 172px;
+          height: 150px;
       }
       &:hover {
         box-shadow: 0px 3px 4px #ccc;

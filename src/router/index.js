@@ -10,6 +10,7 @@ import businessAreas from '@/components/business-areas/business-areas'
 import areaDetail from '@/components/business-areas/detail'
 import contactUs from '@/components/contact-us/contact-us'
 import culture from '@/components/culture/culture'
+import cultureDetail from '@/components/culture/culture-detail'
 import practice from '@/components/practice-base/practice-base'
 Vue.use(Router);
 
@@ -29,6 +30,7 @@ children.push({path: '/business', name: 'businessAreas', components: {home: busi
 children.push({path: '/area-detail', name: 'areaDetail', components: {home: areaDetail}});
 children.push({path: '/contact', name: 'contactUs', components: {home: contactUs}});
 children.push({path: '/culture', name: 'culture', components: {home: culture}});
+children.push({path: '/culture-detail', name: 'cultureDetail', components: {home: cultureDetail}});
 children.push({path: '/practice', name: 'practice', components: {home: practice}});
 
 export default new Router({

@@ -14,6 +14,7 @@
               <router-link to="/news"><div class="navigation-title">新闻资讯</div></router-link>
               <router-link to="/news"><div class="navigation-item">企业要闻</div></router-link>
               <router-link to="/news"><div class="navigation-item">行业动态</div></router-link>
+              <router-link to="/news"><div class="navigation-item">战略合作</div></router-link>
             </el-col>
             <el-col :span="3">
               <router-link to="/business"><div class="navigation-title">经典项目</div></router-link>
@@ -39,7 +40,7 @@
               <router-link to="/practice"><div class="navigation-item">培训实况 </div></router-link>
             </el-col>
             <el-col :span="3">
-              <router-link to="/recruiting"><div class="navigation-title">人力资源</div></router-link>
+              <router-link to="/recruiting"><div class="navigation-title">招贤纳士</div></router-link>
               <router-link to="/recruiting"><div class="navigation-item">人才理念</div></router-link>
               <router-link to="/recruiting"><div class="navigation-item">社会招聘</div></router-link>
               <router-link to="/recruiting"><div class="navigation-item">校园招聘</div></router-link>

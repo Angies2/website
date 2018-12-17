@@ -2,14 +2,14 @@
     <div class="news-center">
       <div class="top-menu">
         <div class="top-menu-location">
-          <span>您现在的位置：首页>新闻资讯>{{activeName}}</span>
+          <span>您现在的位置：<router-link to="/">首页</router-link>><router-link to="/news">新闻资讯</router-link>>{{activeName}}</span>
         </div>
       </div>
       <div class="tabs">
         <el-tabs v-model="activeName">
           <el-tab-pane label="企业" name="企业动态">
             <label slot="label">&nbsp;&nbsp;&nbsp;企业动态</label>
-            <ul class="list-news">
+            <ul class="list-news company">
               <li class="list-items"  v-for=" item in companyList" @click="toDetail(item.id)">
                 <el-row :gutter="60">
                   <el-col :span="6">
@@ -39,14 +39,15 @@
             </ul>
           </el-tab-pane>
           <el-tab-pane label="行业要闻" name="行业要闻">
-            <label slot="label">&nbsp;行业要闻&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <ul  class="list-news"  v-for=" item in companyList">
-              <li  class="list-items" @click="toDetail(item.id)">
+            <label slot="label">行业要闻</label>
+            <ul  class="list-news industry" >
+              <li  class="list-items"  v-for=" item in industList">
+                <a target="_blank" :href="item.link">
                 <el-row :gutter="60">
                   <el-col :span="6">
-                    <img :src="item.thumbnail"/>
+                    <img src="./tylin.png"/>
                   </el-col>
-                  <el-col :span="18">
+                  <el-col :span="18" class="title-link">
                     <div>
                       <div class="news-title">{{item.title}}</div>
                       <div class="news-content">{{item.abstract}}</div>
@@ -57,8 +58,21 @@
                     </div>
                   </el-col>
                 </el-row>
+                </a>
               </li>
+              <el-pagination
+                @size-change="handleSizeChangeIndust"
+                @current-change="handleCurrentChangeIndust"
+                :current-page="currentPageIndust"
+                :page-sizes="[5, 10, 20, 50]"
+                :page-size="pagesizeIndust"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="totalIndust">
+              </el-pagination>
             </ul>
+          </el-tab-pane>
+          <el-tab-pane label="战略合作" name="战略合作">
+            <label slot="label">&nbsp;战略合作&nbsp;&nbsp;&nbsp;&nbsp;</label>
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -72,34 +86,66 @@
         return {
           activeName: '企业动态',
           companyList:[],
+          industList:[],
           currentPage:1, //初始页
           pagesize:5,    //    每页的数据
-          total:0
+          total:0,
+          currentPageIndust:1,
+          pagesizeIndust:5,
+          totalIndust:0
         };
       },
       mounted() {
-        this.handleUserList();
+        this.handleEnterpriseList();
+        this.handleIndustList();
       },
       methods: {
         toDetail: function(num) {
-          this.$router.push({path:"/news-detail", query: { newsId: num }})
+          this.$router.push({path:"/news-detail", query: { newsId: num ,activeName:this.activeName}})
         },
-        // 初始页currentPage、初始每页数据数pagesize和数据data
+        // 初始企业动态页currentPage、初始每页数据数pagesize和数据data
         handleSizeChange: function (size) {
           this.pagesize = size;
-          this.handleUserList();
+          this.handleEnterpriseList();
         },
         handleCurrentChange: function(currentPage){
           this.currentPage = currentPage;
-          this.handleUserList();
+          this.handleEnterpriseList();
         },
-        handleUserList() {
+        // 初始页行业要闻currentPage、初始每页数据数pagesize和数据data
+        handleSizeChangeIndust: function (pagesizeIndust) {
+          this.pagesizeIndust = pagesizeIndust;
+          this.handleIndustList();
+        },
+        handleCurrentChangeIndust: function(currentPageIndust){
+          this.currentPageIndust = currentPageIndust;
+          this.handleIndustList();
+        },
+        //企业动态
+        handleEnterpriseList() {
           var _this = this;
           this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
-            var msg = res.body;
+            let msg = res.body;
             if(msg.code === 200){
               this.companyList = msg.contents;
               this.total = msg.total;
+            }else{
+              _this.$message({
+                message: msg.message,
+                type: 'error',
+                duration:2000
+              });
+            }
+          });
+        },
+        //行业要闻
+        handleIndustList(){
+          var _this = this;
+          this.$http.get("/api/contents?type=industry&deleted=false&currentPage="+_this.currentPageIndust+"&pageSize="+_this.pagesizeIndust).then(function(res){
+            let msg = res.body;
+            if(msg.code === 200){
+              this.industList = msg.contents;
+              this.totalIndust = msg.total;
             }else{
               _this.$message({
                 message: msg.message,
@@ -131,6 +177,9 @@
     padding: 5px;
     border-radius: 3px;
   }
+    a {
+      color: #fff;
+    }
   }
   .news-center .el-tabs__nav {
     margin: 16px 0;
@@ -162,7 +211,7 @@
   }
   .news-center .tabs {
     width: 1280px;
-    margin: 0px auto;
+    margin: 0 auto;
     .list-news {
       border: 1px #F2F2F2 solid;
       padding: 8px 30px 50px 30px;
@@ -214,6 +263,14 @@
       .el-pagination {
         float: right;
         margin-top: 10px;
+      }
+    }
+    .industry {
+      .title-link {
+        /*margin-top: 71px;*/
+      }
+      img {
+        /*width: 159px;*/
       }
     }
   }

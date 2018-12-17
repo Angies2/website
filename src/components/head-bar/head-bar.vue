@@ -18,7 +18,7 @@
         <router-link to="/practice">|&nbsp;&nbsp;&nbsp;&nbsp;<span>BIM实训基地</span>&nbsp;&nbsp;</router-link>
         <!--<router-link to="/about">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>技术创新</span>&nbsp;</router-link>-->
         <router-link to="/culture">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>企业文化</span></router-link>
-        <router-link to="/recruiting">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>人力资源</span></router-link>
+        <router-link to="/recruiting">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>招贤纳士</span></router-link>
         <router-link to="/contact">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>联系我们</span></router-link>
       </el-col>
       <el-col :span="5" class="tylin-contact">

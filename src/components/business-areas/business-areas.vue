@@ -2,7 +2,7 @@
   <div class="business-areas">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：首页>经典项目>{{activeName}}</span>
+        <span>您现在的位置：<router-link to="/">首页</router-link>>经典项目>{{activeName}}</span>
       </div>
     </div>
     <div class="tabs">
@@ -80,7 +80,7 @@
       },
       methods:{
         toDetail: function(num) {
-          this.$router.push({path:"/area-detail", query: { areaId: num }})
+          this.$router.push({path:"/area-detail", query: { areaId: num,activeName: this.activeName}})
         }
       }
     }
@@ -106,6 +106,9 @@
     padding: 5px;
     border-radius: 3px;
   }
+    a {
+      color: #fff;
+    }
   }
   .business-areas .el-tabs__nav {
     margin: 16px 0;

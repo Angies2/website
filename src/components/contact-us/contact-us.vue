@@ -2,7 +2,7 @@
   <div class="contact-us">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：首页>联系我们</span>
+        <span>您现在的位置：<router-link to="/">首页</router-link>>联系我们</span>
       </div>
     </div>
     <div class="menu-title">
@@ -99,6 +99,9 @@
         background-color: #3031339c;
         padding: 5px;
         border-radius: 3px;
+      }
+      a {
+        color: #fff;
       }
     }
     .menu {

@@ -3,12 +3,12 @@
     <el-carousel :autoplay="true" arrow="never"  ref="carousel">
       <el-carousel-item v-for="(item,index) in 3" :key="item">
         <div class="img-carousel">
-          <img src="./pic05.jpg" v-if="index == 0" class="bannerImg" />
+          <img src="./pic06.jpg" v-if="index == 0" class="bannerImg" />
         </div><div class="img-carousel">
-        <img src="./pic06.jpg"  v-if="index == 1" class="bannerImg" />
+        <img src="./10.jpg"  v-if="index == 1" class="bannerImg" />
       </div>
         <div class="img-carousel">
-          <img src="./pic7.jpg" v-if="index == 2" class="bannerImg" />
+          <img src="./pic12.jpg" v-if="index == 2" class="bannerImg" />
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -17,8 +17,8 @@
         <div  @click="previousNews"><img src="./left.png"/></div>
         <div  @click="nextNews"><img src="./right.png"/></div>
         <ul id="message_list" class="scroll-content" :style="{ top }">
-          <li v-for="item in news">
-            <span>{{item.message}}</span>
+          <li v-for="item in news" @click="toDetail(item.id)">
+            <span>{{item.title}}</span>
             <span class="first-item-date">{{item.date}}</span>
           </li>
         </ul>
@@ -29,7 +29,7 @@
       <div class="project-list">
         <div class="list-bg">
           <div id="project-content">
-            <div class="project-title"><b>项目展示</b><span class="project-en-name">&nbsp;&nbsp;Project Display</span></div>
+            <div class="project-title"><router-link to="/business"><b>项目展示</b><span class="project-en-name">&nbsp;&nbsp;Project Display</span></router-link></div>
             <el-tabs v-model="activeName"  tabPosition="right">
               <el-tab-pane label="01" name="first">
                 <label slot="label">
@@ -39,7 +39,7 @@
                     </el-col>
                     <el-col :span="22">
                       <div class="font-fourteen font-ch">中国·云南 丨 昆明市综合交通国际枢纽</div>
-                      <div class="font-ten font-en">YUNNAN , CHINA丨 KUNMING INTERANTIONAL INTEGRATED TRANSPORT HUB PROJECT</div>
+                      <div class="font-ten font-en">Yunnan , China丨 Kunming Interantional  Integrated Transport Hub project</div>
                     </el-col>
                   </el-row>
                 </label>
@@ -53,7 +53,7 @@
                     </el-col>
                     <el-col :span="22">
                       <div class="font-fourteen font-ch">中国·重庆 丨 万开周家坝-浦里快速通道</div>
-                      <div class="font-ten font-en">CHONGQING , CHINA丨 ZHOU DAM TO PULI HYPER CHANNEL IN WANZHOU AND KAIXIAN</div>
+                      <div class="font-ten font-en">Chongqing , China丨 Zhou Dam to Puli Hyper  Channel in Wanzhou and Kaizhou</div>
                     </el-col>
                   </el-row>
                 </label>
@@ -67,7 +67,7 @@
                     </el-col>
                     <el-col :span="22">
                       <div class="font-fourteen font-ch">中国·重庆 丨 重庆蔡家嘉陵江大桥</div>
-                      <div class="font-ten font-en">CHONGQING , CHINA丨 CAI JIA JIALING RIVER BRIDGE</div>
+                      <div class="font-ten font-en">Chongqing , China丨 Cai Jia Jialing  River Bridge</div>
                     </el-col>
                   </el-row>
                 </label>
@@ -81,7 +81,7 @@
                     </el-col>
                     <el-col :span="22">
                       <div class="font-fourteen font-ch">中国·昆明 丨 官渡区人民医院</div>
-                        <div class="font-ten font-en">KUNMING , CHINA丨 GUANDU DISTRICT PEOPLE'S HOSPITAL OF KUNMING CITY</div>
+                        <div class="font-ten font-en">Kunming , China丨 Guandu District  People's Hospital of Kunming City</div>
                     </el-col>
                   </el-row>
                 </label>
@@ -108,27 +108,15 @@
               <div class="news-top-title">企业要闻&nbsp;&nbsp;Enterprise News</div>
               </router-link>
               <hr/>
-              <div class="news-item">
+              <div class="news-item" v-for=" item in companyList">
                 <el-row :gutter="20">
                   <el-col :span="3">
-                    <div class="news-date-day">26</div>
-                    <div class="news-date-mouth">2018-06</div>
+                    <div class="news-date-day">{{item.date.match(/月(\S*)日/)[1]}}</div>
+                    <div  class="news-date-mouth">{{item.date.match(/(\S*)年/)[1]}}-{{item.date.match(/年(\S*)月/)[1]}}</div>
                   </el-col>
                   <el-col :span="21">
-                    <div class="news-title"   @click="toDetail('5bfdfcf97720ba5e606254cb')">公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲</div>
-                    <div class="news-content">林同棪国际工程咨询（中国）有限公司副总裁、林同棪（重庆）国际工程技术有限公司董事长汪洋应邀为重庆市注册建筑师作了《全过程工程咨询模式推进过程中的几个问题》专题培训讲座.....</div>
-                  </el-col>
-                </el-row>
-              </div>
-              <div class="news-item">
-                <el-row :gutter="20">
-                  <el-col :span="3">
-                    <div class="news-date-day">17</div>
-                    <div  class="news-date-mouth">2018-10</div>
-                  </el-col>
-                  <el-col :span="21">
-                    <div class="news-title">林同棪（重庆）国际工程技术有限公司10月校园招聘圆满结束</div>
-                    <div class="news-content">心随“棪”动，筑梦未来&nbsp;|&nbsp;又是一年招聘季，历时一个月1的校园招聘会，林同棪（重庆）国际工程技术陪你一同见证......</div>
+                    <div class="news-title"  @click="toIndustryDetail(item.id)">{{item.title}}</div>
+                    <div class="news-content">{{item.abstract}}......</div>
                   </el-col>
                 </el-row>
               </div>
@@ -142,27 +130,15 @@
               <div class="news-top-title">行业动态&nbsp;&nbsp;Industry Trends</div>
               </router-link>
               <hr/>
-              <div class="news-item">
+              <div class="news-item" v-for=" item in industList">
                 <el-row :gutter="20">
                   <el-col :span="3">
-                    <div class="news-date-day">30</div>
-                    <div  class="news-date-mouth">2018-09</div>
+                    <div class="news-date-day">{{item.date.match(/月(\S*)日/)[1]}}</div>
+                    <div  class="news-date-mouth">{{item.date.match(/(\S*)年/)[1]}}-{{item.date.match(/年(\S*)月/)[1]}}</div>
                   </el-col>
                   <el-col :span="21">
-                    <div class="news-title"  @click="toDetail('5bff545d0bced04168b12bb7')">你的BIM未必出类拔萃，但我能让你与众不同</div>
-                    <div class="news-content">2018年，促进BIM发展的相关政策陆续被推出。国务院，国家发改委，住建部及地方各级政府陆续发文，提出要大力度地推进BIM技术应用。......</div>
-                  </el-col>
-                </el-row>
-              </div>
-              <div class="news-item">
-                <el-row :gutter="20">
-                  <el-col :span="3">
-                    <div class="news-date-day">02</div>
-                    <div  class="news-date-mouth">2018-11</div>
-                  </el-col>
-                  <el-col :span="21">
-                    <div class="news-title">2018 BIM考试秘笈——2018冬季“BIM应用工程师考试”考前冲刺</div>
-                    <div class="news-content">2018年即将过去，今年的小目标你实现了几个？经过一年的打拼，你自身的工作能力和专业水平是不是还在突飞猛进的提升中？相信每个人都会在一年的积累中收获颇深，每个人都有成长和进步，......</div>
+                    <div class="news-title"><a target="_blank" :href="item.link">{{item.title}}</a></div>
+                    <div class="news-content">{{item.abstract}}......</div>
                   </el-col>
                 </el-row>
               </div>
@@ -209,13 +185,11 @@
       return {
         activeName: 'first',
         news:[
-          {message:'公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲',date:'2018-06-26'},
-          {message:'林同棪（重庆）国际工程技术有限公司2019年校招火热启动！',date:'2018-09-17'},
-          {message:'你的BIM未必出类拔萃，但我能让你与众不同',date:'2018-09-30'},
-          {message:'林同棪（重庆）国际工程技术有限公司10月校园招聘圆满结束',date:'2018-10-17'},
-          {message:'2018 BIM考试秘笈——2018冬季“BIM应用工程师考试”考前冲刺',date:'2018-11-02'},
+          {id:'5c107b34e36ce7ae80880c20',title:'公司董事长应邀为重庆市注册建筑师继续教育培训（2018年度）执讲',date:'2018-06-26'},
         ],
-        activeIndex: 0
+        activeIndex: 0,
+        companyList:[],
+        industList:[]
       };
     },
     computed: {
@@ -224,6 +198,19 @@
       }
     },
     mounted(){
+      var _this = this;
+      this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=4").then(function(res){
+        let msg = res.body;
+        if(msg.code === 200){
+          this.news = msg.contents;
+        }else{
+          _this.$message({
+            message: msg.message,
+            type: 'error',
+            duration:2000
+          });
+        }
+      });
       setInterval(_ => {
         if(this.activeIndex < this.news.length) {
           this.activeIndex += 1;
@@ -232,7 +219,9 @@
         }
       }, 2000);
       $("#project-content").addClass("about-animation");//项目展示动画
-      window.addEventListener('scroll', this.handleScroll)
+      window.addEventListener('scroll', this.handleScroll);
+      this.handleEnterpriseList();
+      this.handleIndustList();
     },
     created(){
     },
@@ -240,9 +229,14 @@
       window.removeEventListener('scroll', this.handleScroll)
     },
     methods:{
+      //企业要闻详情
       toDetail: function(num) {
-        this.$router.push({path:"/news-detail", query: { newsId: num }})
+        this.$router.push({path:"/news-detail", query: { newsId: num,activeName:'企业要闻' }})
       },
+      //行业动态详情
+      toIndustryDetail: function(num) {
+          this.$router.push({path:"/news-detail", query: { newsId: num,activeName:'行业动态' }})
+        },
       previousNews (){
         if(this.activeIndex === 1){
           this.activeIndex = this.news.length;
@@ -269,6 +263,38 @@
         if(sTop > (newTop-wTop+100)){
           $("#news-information").addClass("about-animation");//新闻资讯动画
         }
+      },
+      //企业动态
+      handleEnterpriseList() {
+        var _this = this;
+        this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=2").then(function(res){
+          let msg = res.body;
+          if(msg.code === 200){
+            this.companyList = msg.contents;
+          }else{
+            _this.$message({
+              message: msg.message,
+              type: 'error',
+              duration:2000
+            });
+          }
+        });
+      },
+      //行业要闻
+      handleIndustList(){
+        var _this = this;
+        this.$http.get("/api/contents?type=industry&deleted=false&currentPage=1&pageSize=2").then(function(res){
+          let msg = res.body;
+          if(msg.code === 200){
+            this.industList = msg.contents;
+          }else{
+            _this.$message({
+              message: msg.message,
+              type: 'error',
+              duration:2000
+            });
+          }
+        });
       }
     }
   };
@@ -291,6 +317,7 @@
         li {
           line-height: 50px;
           margin-left: 30px;
+          cursor: pointer;
       }
     }
     .second-item,

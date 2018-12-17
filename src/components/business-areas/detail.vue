@@ -2,7 +2,7 @@
     <div class="areas-detail">
       <div class="top-menu">
         <div class="top-menu-location">
-          <span>您现在的位置：首页>业务领域>业务详情</span>
+          <span>您现在的位置：<router-link to="/">首页</router-link>><router-link to="/business">经典项目</router-link>>业务详情</span>
         </div>
       </div>
       <div class="content">
@@ -15,7 +15,7 @@
             发布时间：{{business.date}}
           </div>
           <div class="detail">
-            <img :src="business.pictures"/>
+            <img :src="business.picture"/>
             <div class="introduce">
               <div class="introduce-h"><b> 建设时间：</b>{{business.builddate}}</div>
               <div class="introduce-h"><b> 业主单位：</b>{{business.owner}}</div>
@@ -24,10 +24,10 @@
           </div>
           <div class="content-bottom">
             <div class="bottom-title">项目概况</div>
-            <div class="areas-content">{{business.content}}</div>
+            <div class="areas-content"><p>{{business.content}}</p></div>
             <div class="turn-page">
-              <span class="previous">上一篇:</span>
-              <span class="next">下一篇:</span>
+              <div class="previous" @click="toFormer(former._id)">上一篇:&nbsp;&nbsp;{{former.title}}</div>
+              <div class="next" @click="toNext(next._id)">下一篇:&nbsp;&nbsp;{{next.title}}</div>
             </div>
           </div>
         </div>
@@ -40,36 +40,63 @@
         name: "detail",
       data() {
         return {
-          business: {id:'5c088165a23da24730871529',title:'重庆市残疾人康复中心',content:'xxx',date:'2018年12月6日'}
+          business: {id:'5c088165a23da24730871529',title:'重庆市残疾人康复中心',content:'xxx',date:'2018年12月6日'},
+          former:{id:'5c088165a23da24730871529',title:'重庆市残疾人康复中心'},
+          next:{id:'5c088165a23da24730871529',title:'重庆市残疾人康复中心'},
+          type:'china',
+          areaId:'',
         };
       },
       mounted() {
         var _this = this;
         this.business.id = this.$route.query.areaId;
-        var areaId = this.business.id;
-        this.$http.get("/api/contents/"+areaId).then(function(res){
-          var msg = res.body;
-          if(msg.code === 200){
-            this.business.id = msg.id;
-            this.business.title = msg.title;
-            this.business.entitle = msg.entitle;
-            this.business.date = msg.date;
-            this.business.builddate = msg.builddate;
-            this.business.owner = msg.owner;
-            this.business.servicecontent = msg.servicecontent;
-            this.business.pictures = msg.pictures;
-            $('.areas-content').html(msg.content);
-          }else{
-            _this.$message({
-              message: msg.message,
-              type: 'error',
-              duration:2000
-            });
-          }
-        });
+        this.areaId = this.business.id;
+        var typeCH = this.$route.query.activeName;
+        console.log(typeCH);
+        this.type = 'china';
+        if(typeCH === "国内项目"){
+          this.type = 'china'
+        }else if(typeCH === "国外项目") {
+          this.type = 'international'
+        }else{
+          this.$message({
+            message: '系统错误，请稍后重试！',
+            type: 'error',
+            duration:2000
+          });
+        }
+        this.businessList();
       },
       created() {
       },
+      methods: {
+        //上一页
+        toFormer: function (_id) {
+          this.areaId=_id;
+          this.businessList();
+        },
+        //下一页
+        toNext:function (_id) {
+          this.areaId=_id;
+          this.businessList();
+        },
+        businessList:function () {
+          this.$http.get("/api/contents/"+this.areaId+'?sort=yes&type='+this.type).then(function(res){
+            var msg = res.body;
+            if(msg.code === 200){
+              this.business = msg.data.current;
+              this.former = msg.data.former;
+              this.next = msg.data.next;
+            }else{
+              _this.$message({
+                message: msg.message,
+                type: 'error',
+                duration:2000
+              });
+            }
+          });
+        },
+      }
     }
 </script>
 
@@ -91,6 +118,9 @@
         background-color: #3031339c;
         padding: 5px;
         border-radius: 3px;
+      }
+      a {
+        color: #fff;
       }
     }
     .content {
@@ -137,7 +167,7 @@
             width: 773px;
             padding-left: 13px;
             padding-bottom: 10px;
-            color: #b9b7b7;
+            color: #fff;
           }
         }
         .content-bottom {
@@ -153,8 +183,8 @@
             padding-left: 12px;
           }
           p {
-            padding-left: 12px;
-            line-height: 50px;
+            padding: 0 35px;
+            line-height: 30px;
           }
           .turn-page {
             margin-top: 80px;
@@ -164,6 +194,12 @@
             padding: 0 15px;
             .next {
               float: right;
+              display: inline-block;
+              cursor: pointer;
+            }
+            .previous {
+              display: inline-block;
+              cursor: pointer;
             }
           }
         }
