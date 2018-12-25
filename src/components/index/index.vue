@@ -1,6 +1,6 @@
 <template>
   <div class="index-page" id="index-page">
-    <el-carousel :autoplay="true" arrow="never"  ref="carousel">
+    <el-carousel :autoplay="true" arrow="never"  ref="carousel" :interval="5000">
       <el-carousel-item v-for="(item,index) in 3" :key="item">
         <div class="img-carousel">
           <img src="./pic06.jpg" v-if="index == 0" class="bannerImg" />
@@ -38,12 +38,12 @@
                       <span>01</span>
                     </el-col>
                     <el-col :span="22">
-                      <div class="font-fourteen font-ch">中国·云南 丨 昆明市综合交通国际枢纽</div>
-                      <div class="font-ten font-en">Yunnan , China丨 Kunming Interantional  Integrated Transport Hub project</div>
+                      <div class="font-fourteen font-ch" @click="businessDetail('5c19ea1048ff6acda9814046')" title="详情">中国·昆明 丨 官渡区人民医院</div>
+                      <div class="font-ten font-en">Kunming , China丨 Guandu District  People's Hospital of Kunming City</div>
                     </el-col>
                   </el-row>
                 </label>
-                <img src="./project-display.jpg"/>
+                <img src="./guandu.png"/>
               </el-tab-pane>
               <el-tab-pane label="02" name="second">
                 <label slot="label">
@@ -52,12 +52,12 @@
                       <span>02</span>
                     </el-col>
                     <el-col :span="22">
-                      <div class="font-fourteen font-ch">中国·重庆 丨 万开周家坝-浦里快速通道</div>
-                      <div class="font-ten font-en">Chongqing , China丨 Zhou Dam to Puli Hyper  Channel in Wanzhou and Kaizhou</div>
+                      <div class="font-fourteen font-ch"  @click="businessDetail('5c0e20693c3cc99c26291dcd')"  title="详情">中国·云南 丨 昆明市综合交通国际枢纽</div>
+                      <div class="font-ten font-en">Yunnan , China丨 Kunming Interantional  Integrated Transport Hub project</div>
                     </el-col>
                   </el-row>
                 </label>
-                <img src="./zhoujiaba.jpg"/>
+                <img src="./project-display.jpg"/>
               </el-tab-pane>
               <el-tab-pane label="03" name="third">
                 <label slot="label">
@@ -66,12 +66,13 @@
                       <span>03</span>
                     </el-col>
                     <el-col :span="22">
-                      <div class="font-fourteen font-ch">中国·重庆 丨 重庆蔡家嘉陵江大桥</div>
-                      <div class="font-ten font-en">Chongqing , China丨 Cai Jia Jialing  River Bridge</div>
+                      <div class="font-fourteen font-ch"  @click="businessDetail('5c19e97448ff6acda9814041')"  title="详情">中国·四川 丨 惠科第8.6代薄膜晶体管液晶显示器件项目
+                      </div>
+                      <div class="font-ten font-en">Sichuan , China丨 Huike the 8.6th Generation Thin Film Transistor LCD Project</div>
                     </el-col>
                   </el-row>
                 </label>
-                <img src="./caijia.png"/>
+                <img src="./huike.jpg"/>
               </el-tab-pane>
               <el-tab-pane label="04" name="fourth">
                 <label slot="label">
@@ -80,12 +81,12 @@
                       <span>04</span>
                     </el-col>
                     <el-col :span="22">
-                      <div class="font-fourteen font-ch">中国·昆明 丨 官渡区人民医院</div>
-                        <div class="font-ten font-en">Kunming , China丨 Guandu District  People's Hospital of Kunming City</div>
+                      <div class="font-fourteen font-ch"  @click="businessDetail('5c10ca0ee36ce7ae80880c28')"  title="详情">香港&nbsp;澳门&nbsp;广东 丨 港珠澳大桥</div>
+                      <div class="font-ten font-en">H.K.&nbsp; Macao &nbsp;Guangdong  丨 Hong Kong-Zhuhai-Macao Bridge</div>
                     </el-col>
                   </el-row>
                 </label>
-                <img src="./guandu.png"/>
+                <img src="./zhu.png"/>
               </el-tab-pane>
             </el-tabs>
           </div>
@@ -164,12 +165,11 @@
             <div>
               <router-link to="/about">
               <div class="title">
-                <b class="about-title-ch">关于林同棪</b>
+                <b class="about-title-ch">关于我们</b>
                 <span  class="about-title-en">About Us</span>
               </div>
               </router-link>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;林同棪国际（TYLI）是世界著名工程咨询集团，在桥梁和交通基础设施领域处于世界领先水平,以创新精神、设计精良和成本效益合理而闻名于世。
-                集团始建于1954年，总部设在美国旧金山，主要机构遍布美国、东南亚和中国等地。
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  林同棪（重庆）国际工程技术有限公司为林同棪国际工程咨询（中国）有限公司的子公司，依托林同棪国际在城市基础设施领域的技术与经验优势，形成以建设工程项目全过程管理（项目管理、项目代理、项目咨询）、设计-采购-施工总承包管理（EPCM）、监测加固、工程监理、BIM全过程咨询......
               </p>
             </div>
           </el-col>
@@ -199,7 +199,7 @@
     },
     mounted(){
       var _this = this;
-      this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=4").then(function(res){
+      this.$http.get("http://back.tylin-bim.cn/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=4").then(function(res){
         let msg = res.body;
         if(msg.code === 200){
           this.news = msg.contents;
@@ -267,7 +267,7 @@
       //企业动态
       handleEnterpriseList() {
         var _this = this;
-        this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=2").then(function(res){
+        this.$http.get("http://back.tylin-bim.cn/api/contents?type=enterprise&deleted=false&currentPage=1&pageSize=2").then(function(res){
           let msg = res.body;
           if(msg.code === 200){
             this.companyList = msg.contents;
@@ -283,7 +283,7 @@
       //行业要闻
       handleIndustList(){
         var _this = this;
-        this.$http.get("/api/contents?type=industry&deleted=false&currentPage=1&pageSize=2").then(function(res){
+        this.$http.get("http://back.tylin-bim.cn/api/contents?type=industry&deleted=false&currentPage=1&pageSize=2").then(function(res){
           let msg = res.body;
           if(msg.code === 200){
             this.industList = msg.contents;
@@ -295,7 +295,11 @@
             });
           }
         });
-      }
+      },
+      //项目详情
+      businessDetail:function (areaId) {
+        this.$router.push({path:"/area-detail", query: { areaId: areaId,activeName: "国内项目"}})
+      },
     }
   };
 </script>
@@ -423,6 +427,10 @@
       }
       .font-ch {
         line-height: 12px;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline ;
+        }
       }
       .font-en {
         display: inline-block;
@@ -556,7 +564,7 @@
      .bg {
        position: absolute;
        width: 260px;
-       height: 262px;
+       height: 278px;
        background: #F2F2F2;
        left: 500px;
        z-index: -999;
@@ -598,7 +606,7 @@
   }
    .fifth-item .center-house img {
      width: 500px;
-     height: 262px ;
+     height: 278px ;
   }
    .fifth-item .about .title {
      text-align: right;

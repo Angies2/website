@@ -73,6 +73,34 @@
           </el-tab-pane>
           <el-tab-pane label="战略合作" name="战略合作">
             <label slot="label">&nbsp;战略合作&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ul  class="list-news cooperation" >
+              <li  class="list-items"  v-for=" item in cooperationList"  @click="toDetail(item.id)">
+                <el-row :gutter="60">
+                  <el-col :span="6">
+                    <img src="./tylin.png"/>
+                  </el-col>
+                  <el-col :span="18" class="title-link">
+                    <div>
+                      <div class="news-title">{{item.title}}</div>
+                      <div class="news-content">{{item.abstract}}</div>
+                      <div class="news-bottom">
+                        <span class="news-date">{{item.date}}</span>
+                        <span class="news-more">了解更多</span>
+                      </div>
+                    </div>
+                  </el-col>
+                </el-row>
+              </li>
+              <el-pagination
+                @size-change="handleSizeChangeCooperation"
+                @current-change="handleCurrentChangeCooperation"
+                :current-page="currentPageCooperation"
+                :page-sizes="[5, 10, 20, 50]"
+                :page-size="pagesizeCooperation"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="totalCooperation">
+              </el-pagination>
+            </ul>
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -87,17 +115,27 @@
           activeName: '企业动态',
           companyList:[],
           industList:[],
+          cooperationList:[],
           currentPage:1, //初始页
           pagesize:5,    //    每页的数据
           total:0,
           currentPageIndust:1,
           pagesizeIndust:5,
-          totalIndust:0
+          totalIndust:0,
+          currentPageCooperation:1,
+          pagesizeCooperation:5,
+          totalCooperation:0,
+          flag:0
         };
       },
       mounted() {
+        this.flag = this.$route.query.newsFlag;
+        if(this.flag === 1){
+          this.activeName = '战略合作';
+        }
         this.handleEnterpriseList();
         this.handleIndustList();
+        this.handleCooperationList();
       },
       methods: {
         toDetail: function(num) {
@@ -121,10 +159,19 @@
           this.currentPageIndust = currentPageIndust;
           this.handleIndustList();
         },
+        // 初始页战略合作currentPage、初始每页数据数pagesize和数据data
+        handleSizeChangeCooperation: function (pagesizeCooperation) {
+          this.pagesizeCooperation = pagesizeCooperation;
+          this.handleCooperationList();
+        },
+        handleCurrentChangeCooperation: function(currentPageCooperation){
+          this.currentPageCooperation = currentPageCooperation;
+          this.handleCooperationList();
+        },
         //企业动态
         handleEnterpriseList() {
           var _this = this;
-          this.$http.get("/api/contents?type=enterprise&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
+          this.$http.get("http://back.tylin-bim.cn/api/contents?type=enterprise&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
             let msg = res.body;
             if(msg.code === 200){
               this.companyList = msg.contents;
@@ -141,7 +188,7 @@
         //行业要闻
         handleIndustList(){
           var _this = this;
-          this.$http.get("/api/contents?type=industry&deleted=false&currentPage="+_this.currentPageIndust+"&pageSize="+_this.pagesizeIndust).then(function(res){
+          this.$http.get("http://back.tylin-bim.cn/api/contents?type=industry&deleted=false&currentPage="+_this.currentPageIndust+"&pageSize="+_this.pagesizeIndust).then(function(res){
             let msg = res.body;
             if(msg.code === 200){
               this.industList = msg.contents;
@@ -154,7 +201,24 @@
               });
             }
           });
-        }
+        },
+        //战略合作
+        handleCooperationList() {
+          var _this = this;
+          this.$http.get("http://back.tylin-bim.cn/api/contents?type=cooperation&deleted=false&currentPage="+_this.currentPageCooperation+"&pageSize="+_this.pagesizeCooperation).then(function(res){
+            let msg = res.body;
+            if(msg.code === 200){
+              this.cooperationList = msg.contents;
+              this.totalCooperation = msg.total;
+            }else{
+              _this.$message({
+                message: msg.message,
+                type: 'error',
+                duration:2000
+              });
+            }
+          });
+        },
       }
     }
 </script>
@@ -173,7 +237,7 @@
     margin: 0 auto;
     padding-top: 230px;
   span {
-    background-color: #3031339c;
+    background-color: #6a6b6da6;
     padding: 5px;
     border-radius: 3px;
   }
@@ -243,23 +307,6 @@
           }
         }
       }
-      /*.el-select-dropdown__item .selected span {*/
-        /*color: #FF9955 !important;*/
-      /*}*/
-      /*.el-pager li.active {*/
-        /*color: #FF9955;*/
-      /*}*/
-      /*.el-select .el-input .el-input__inner {*/
-        /*border-color: #FF9955;*/
-        /*&:focus,*/
-        /*&:hover,*/
-        /*&:active {*/
-          /*border-color: #FF9955;*/
-        /*}*/
-      /*}*/
-      /*.el-pager li:hover {*/
-        /*color: #FF9955;*/
-      /*}*/
       .el-pagination {
         float: right;
         margin-top: 10px;

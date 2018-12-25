@@ -8,7 +8,7 @@
               <router-link to="/about"><div class="navigation-title">关于我们</div></router-link>
               <router-link to="/about"><div class="navigation-item">公司概况</div></router-link>
               <router-link to="/about"><div class="navigation-item">企业资质</div></router-link>
-              <router-link to="/about"><div class="navigation-item">人才团队</div></router-link>
+              <!--<router-link to="/about"><div class="navigation-item">人才团队</div></router-link>-->
             </el-col>
             <el-col :span="3">
               <router-link to="/news"><div class="navigation-title">新闻资讯</div></router-link>
@@ -48,7 +48,7 @@
             <el-col :span="3">
               <div class="navigation-title">友情链接</div>
               <a target="_blank" href="http://www1.tylin.com.cn/"><div class="navigation-item">林同棪国际</div></a>
-              <div class="navigation-item">达尔集团</div>
+              <a target="_blank" href="https://www.dar.com/"><div class="navigation-item">达尔集团</div></a>
               <div class="navigation-item">投诉建议</div>
             </el-col>
           </el-row>
@@ -64,10 +64,10 @@
     <div class="bottom-address">
       <el-row>
         <el-col :span="12">
-          <span>通信地址：重庆市渝北区春兰3路地勘大厦13楼</span>
+          <span>通信地址：重庆市渝北区芙蓉路6号</span>
         </el-col>
         <el-col :span="12">
-          <span class="tylin-copy">COPYRIGHT&copy;2018- 林同棪（重庆）国际工程技术有限公司版权所有</span>
+          <span class="tylin-copy">林同棪国际版权所有&copy;2018 林同棪（重庆）国际工程技术有限公司总工办维护</span>
         </el-col>
       </el-row>
     </div>
@@ -140,6 +140,6 @@
     position: absolute;
     width: 118px;
     top: 148px;
-    right: 31px;
+    right: 35px;
   }
 </style>

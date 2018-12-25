@@ -46,11 +46,16 @@
           activeName: '国内项目',
           chinaList:[],
           foreignList:[],
+          flag:0
         };
       },
       mounted() {
         var _this = this;
-        this.$http.get("/api/contents?currentPage=1&type=china&deleted=false&pageSize=100").then(function(res){
+        _this.flag = this.$route.query.flag;
+        if(_this.flag === 1){
+          this.activeName = '国外项目';
+        }
+        this.$http.get("http://back.tylin-bim.cn/api/contents?currentPage=1&type=china&deleted=false&pageSize=100").then(function(res){
           var msg = res.body;
           if(msg.code === 200){
             this.chinaList = msg.contents;
@@ -63,7 +68,7 @@
           }
         });
         var _this = this;
-        this.$http.get("/api/contents?currentPage=1&type=international&deleted=false&pageSize=100").then(function(res){
+        this.$http.get("http://back.tylin-bim.cn/api/contents?currentPage=1&type=international&deleted=false&pageSize=100").then(function(res){
           var msg = res.body;
           if(msg.code === 200){
             this.foreignList = msg.contents;
@@ -102,7 +107,7 @@
     margin: 0 auto;
     padding-top: 230px;
   span {
-    background-color: #3031339c;
+    background-color: #6a6b6da6;
     padding: 5px;
     border-radius: 3px;
   }

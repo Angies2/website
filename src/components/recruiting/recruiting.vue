@@ -2,7 +2,7 @@
   <div class="recruiting">
     <div class="top-menu">
       <div class="top-menu-location">
-        <span>您现在的位置：<router-link to="/" >首页</router-link>>人力资源>{{activeName}}</span>
+        <span>您现在的位置：<router-link to="/" >首页</router-link>>招贤纳士>{{activeName}}</span>
       </div>
     </div>
     <div class="tabs">
@@ -13,10 +13,14 @@
             <div class="talent-concept">
               <h4 class="title-ch">人才战略</h4>
               <h5 class="title-en">Talent Strategy</h5>
-              <li><span class="orange">用人机制</span>任人唯贤用人才，是公司发展的根本。</li>
-              <li><span class="orange">绩效管理</span>公平公正励人才，是公司壮大的基石。</li>
-              <li><span class="orange">绩效分配</span>事业留人留人才，市公司制胜的源泉。</li>
-              <li><span class="orange">教育培训</span>共生共赢育人才，是公司创新的法宝。  </li>
+              <li><span class="orange">人才理念：人尽其才，才尽其用。</span></li>
+              <li>充分发挥每个员工的长处，在合适的位置发挥最大的能量</li>
+              <li><span class="orange">职业平台：相互提升，共享成就。</span></li>
+              <li>优秀的员工是项目成功的关键，成功的项目是优秀人才的积淀</li>
+              <li><span class="orange">薪酬福利：效率优先，兼顾公平。</span></li>
+              <li>科学合理的薪酬体系和福利保障体系</li>
+              <li><span class="orange">培训发展：打造学习型组织，多层级培训体系。</span></li>
+              <li>多维度、多层级的培训体系，塑造复合型人才，让员工提供快速成长平台</li>
             </div>
             <div class="talent-concept">
               <h4 class="title-ch">发展平台</h4>
@@ -211,7 +215,7 @@
     margin: 0 auto;
     padding-top: 230px;
     span {
-      background-color: #3031339c;
+      background-color: #6a6b6da6;
       padding: 5px;
       border-radius: 3px;
     }
@@ -301,6 +305,7 @@
     .talent-concept {
       margin-bottom: 50px;
      .title-ch {
+       color: #000;
         font-size: 23px;
        line-height: 28px;
        margin-left: -10px;
@@ -315,10 +320,11 @@
         line-height: 45px;
         font-size: 14px;
         .orange {
-          color: #FF9955;
-          font-weight: bold;
           display: inline-block;
-          margin-right: 30px;
+          font-weight: bold;
+          color: #666;
+          /*color: #000;*/
+          /*margin-right: 30px;*/
         }
       }
       .img-manager {

@@ -9,7 +9,7 @@
       <el-tabs v-model="activeName">
         <el-tab-pane label="文化理念" name="文化理念">
           <label slot="label">&nbsp;&nbsp;&nbsp;&nbsp;文化理念</label>
-          <img src="./eagle.jpg"/>
+          <img  class="concept-img" src="./eagle.jpg"/>
           <div class="content">
             <b>&nbsp;&nbsp;&nbsp;&nbsp;企业文化理念</b>
             <li>
@@ -27,6 +27,10 @@
             <li>
               <img src="./u4.png"/>
               <span>人才理念：搭建平台、实现价值</span>
+            </li>
+            <li>
+              <img src="./u4.png"/>
+              <span>员工核心价值观：诚信、责任、合作、创新</span>
             </li>
           </div>
         </el-tab-pane>
@@ -91,9 +95,16 @@
           currentPage:1, //初始页
           pagesize:5,    //    每页的数据
           total:0,
+          flag:0
         };
       },
       mounted() {
+        this.flag = this.$route.query.cultureFlag;
+        if(this.flag === 1){
+          this.activeName = '文化建设';
+        }else {
+          this.activeName = '文化理念';
+        }
         this.handleCultureList();
       },
       created() {
@@ -114,7 +125,7 @@
         //文化建设列表
         handleCultureList() {
           var _this = this;
-          this.$http.get("/api/contents?type=culture&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
+          this.$http.get("http://back.tylin-bim.cn/api/contents?type=culture&deleted=false&currentPage="+_this.currentPage+"&pageSize="+_this.pagesize).then(function(res){
             let msg = res.body;
             if(msg.code === 200){
               this.cultureList = msg.contents;
@@ -147,7 +158,7 @@
       margin: 0 auto;
       padding-top: 230px;
       span {
-        background-color: #3031339c;
+        background-color: #6a6b6da6;
         padding: 5px;
         border-radius: 3px;
       }
@@ -186,6 +197,10 @@
     .tabs {
       width: 1280px;
       margin: 0 auto;
+      .concept-img {
+        width: 1280px;
+        /*height: 450px;*/
+      }
     }
     .content {
       background-color: #F2F2F2;

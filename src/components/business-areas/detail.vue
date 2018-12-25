@@ -7,6 +7,7 @@
       </div>
       <div class="content">
         <div class="content-title">
+          <div class="link-back" @click="backTo()">返&nbsp;回</div>
           <b>{{business.title}}</b>
           <span>{{business.entitle}}</span>
         </div>
@@ -26,7 +27,7 @@
             <div class="bottom-title">项目概况</div>
             <div class="areas-content"><p>{{business.content}}</p></div>
             <div class="turn-page">
-              <div class="previous" @click="toFormer(former._id)">上一篇:&nbsp;&nbsp;{{former.title}}</div>
+              <div class="previous" @click="toFormer(former._id)">上一篇:&nbsp;&nbsp;{{former==='无' ? '无': former.title}}</div>
               <div class="next" @click="toNext(next._id)">下一篇:&nbsp;&nbsp;{{next.title}}</div>
             </div>
           </div>
@@ -52,7 +53,6 @@
         this.business.id = this.$route.query.areaId;
         this.areaId = this.business.id;
         var typeCH = this.$route.query.activeName;
-        console.log(typeCH);
         this.type = 'china';
         if(typeCH === "国内项目"){
           this.type = 'china'
@@ -70,6 +70,15 @@
       created() {
       },
       methods: {
+        backTo:function(){
+          let num = 0;
+          if(this.type === 'china'){
+            num = 0;
+          }else if(this.type === 'international') {
+            num = 1;
+          }
+          this.$router.push({path:"/business", query: { flag: num}})
+        },
         //上一页
         toFormer: function (_id) {
           this.areaId=_id;
@@ -81,7 +90,7 @@
           this.businessList();
         },
         businessList:function () {
-          this.$http.get("/api/contents/"+this.areaId+'?sort=yes&type='+this.type).then(function(res){
+          this.$http.get("http://back.tylin-bim.cn/api/contents/"+this.areaId+'?sort=yes&type='+this.type).then(function(res){
             var msg = res.body;
             if(msg.code === 200){
               this.business = msg.data.current;
@@ -115,7 +124,7 @@
       margin: 0 auto;
       padding-top: 230px;
       span {
-        background-color: #3031339c;
+        background-color: #6a6b6da6;
         padding: 5px;
         border-radius: 3px;
       }
@@ -129,6 +138,18 @@
       .content-title {
         text-align: center;
         margin: 30px 0;
+        position: relative;
+        .link-back {
+          position: absolute;
+          left: 0;
+          line-height: 19px;
+          top: 15px;
+          font-size: 14px;
+          /*color: #ccc;*/
+          border: 1px #ccc solid;
+          padding: 3px 10px;
+          cursor: pointer;
+        }
         b {
           display: block;
           font-size: 16px;
@@ -204,6 +225,9 @@
           }
         }
       }
+    }
+    .areas-content {
+      height: 60px;
     }
   }
 </style>

@@ -19,7 +19,7 @@
           <el-row>
             <el-col :span="19">
               <div class="address">
-                <div>通信地址：重庆市渝北区春兰3路一号地矿大厦</div>
+                <div>通信地址：重庆市渝北区芙蓉路6号</div>
                 <div>邮政编码：401121</div>
                 <div>联系电话：023-63087850</div>
                 <div>联系邮箱：lijiakrystal@tylin.com.cn</div>
@@ -96,7 +96,7 @@
       margin: 0 auto;
       padding-top: 230px;
       span {
-        background-color: #3031339c;
+        background-color: #6a6b6da6;
         padding: 5px;
         border-radius: 3px;
       }
@@ -109,11 +109,12 @@
       margin: 50px auto;
       border: 1px #F2F2F2 solid;
       padding: 71px;
+      margin-bottom: 0 !important;
     }
     .left-menu {
       img{
         width: 500px;
-        height: 336px;
+        /*height: 336px;*/
       }
     }
     .right-title {
@@ -139,6 +140,9 @@
         width: 125px;
         margin-top: 29px;
       }
+    }
+    .menu-map {
+      margin-top: 20px;
     }
   }
 </style>
