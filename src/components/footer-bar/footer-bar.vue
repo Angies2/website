@@ -63,11 +63,14 @@
     </div>
     <div class="bottom-address">
       <el-row>
-        <el-col :span="12">
+        <el-col :span="8">
           <span>通信地址：重庆市渝北区芙蓉路6号</span>
         </el-col>
         <el-col :span="12">
           <span class="tylin-copy">林同棪国际版权所有&copy;2018 林同棪（重庆）国际工程技术有限公司总工办维护</span>
+        </el-col>
+        <el-col :span="4">
+         <img src="./guohui.png"/><a  target="_blank" href="http://www.miibeian.gov.cn/publish/query/indexFirst.action">渝ICP备17005233号-1</a>
         </el-col>
       </el-row>
     </div>
@@ -91,6 +94,13 @@
   .el-footer .bottom-address {
     background-color: #333;
     font-size: 10px;
+  }
+  .el-footer .bottom-address a {
+    font-size: 10px;
+    color: #928787;
+  }
+  .el-footer .bottom-address img {
+    vertical-align: sub;
   }
   .el-footer .bottom-navigation {
     background-color:#333;
